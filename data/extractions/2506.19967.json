@@ -1,0 +1,98 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Multi-hop question answering",
+      "type": "Task"
+    },
+    {
+      "name": "Knowledge graph",
+      "type": "Dataset"
+    },
+    {
+      "name": "Retrieval-Augmented Generation (RAG)",
+      "type": "Method"
+    },
+    {
+      "name": "Inference-Scaled GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Sequential scaling",
+      "type": "Method"
+    },
+    {
+      "name": "Deep chain-of-thought graph traversal",
+      "type": "Method"
+    },
+    {
+      "name": "Parallel scaling",
+      "type": "Method"
+    },
+    {
+      "name": "Majority voting",
+      "type": "Method"
+    },
+    {
+      "name": "GRBench benchmark",
+      "type": "Dataset"
+    },
+    {
+      "name": "sequential scaling and deep chain-of-thought graph traversal",
+      "type": "Concept"
+    },
+    {
+      "name": "parallel scaling and majority voting over sampled trajectories",
+      "type": "Concept"
+    },
+    {
+      "name": "multi-hop question answering performance",
+      "type": "Concept"
+    },
+    {
+      "name": "substantial gains over both traditional GraphRAG and prior graph traversal baselines",
+      "type": "Concept"
+    },
+    {
+      "name": "inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "Inference-Scaled GraphRAG"
+    },
+    {
+      "subject": "Inference-Scaled GraphRAG",
+      "relation": "combines",
+      "object": "sequential scaling and deep chain-of-thought graph traversal"
+    },
+    {
+      "subject": "Inference-Scaled GraphRAG",
+      "relation": "combines",
+      "object": "parallel scaling and majority voting over sampled trajectories"
+    },
+    {
+      "subject": "Inference-Scaled GraphRAG",
+      "relation": "improves",
+      "object": "multi-hop question answering performance"
+    },
+    {
+      "subject": "Inference-Scaled GraphRAG",
+      "relation": "achieves",
+      "object": "substantial gains over both traditional GraphRAG and prior graph traversal baselines"
+    },
+    {
+      "subject": "Inference-Scaled GraphRAG",
+      "relation": "suggests",
+      "object": "inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs"
+    }
+  ],
+  "paper_id": "2506.19967",
+  "model": "qwen2.5:1.5b"
+}

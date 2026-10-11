@@ -1,0 +1,111 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "TagRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Tag-guided hierarchical knowledge graph retrieval-Augmented generation",
+      "type": "Concept"
+    },
+    {
+      "name": "two key components",
+      "type": "Concept"
+    },
+    {
+      "name": "Tag Knowledge Graph Construction",
+      "type": "Concept"
+    },
+    {
+      "name": "Tag-Guided Retrieval-Augmented Generation",
+      "type": "Concept"
+    },
+    {
+      "name": "efficient global reasoning and scalable graph maintenance",
+      "type": "Concept"
+    },
+    {
+      "name": "efficient knowledge increment",
+      "type": "Concept"
+    },
+    {
+      "name": "UltraDomain datasets",
+      "type": "Concept"
+    },
+    {
+      "name": "78.36% winning rate",
+      "type": "Concept"
+    },
+    {
+      "name": "14.6x construction efficiency",
+      "type": "Concept"
+    },
+    {
+      "name": "1.9x retrieval efficiency",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "TagRAG",
+      "relation": "proposes",
+      "object": "Tag-guided hierarchical knowledge graph retrieval-Augmented generation"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "introduces",
+      "object": "two key components"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "introduces",
+      "object": "Tag Knowledge Graph Construction"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "introduces",
+      "object": "Tag-Guided Retrieval-Augmented Generation"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "designs",
+      "object": "efficient global reasoning and scalable graph maintenance"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "supports",
+      "object": "efficient knowledge increment"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "compares",
+      "object": "GraphRAG"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "compares",
+      "object": "UltraDomain datasets"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "compares",
+      "object": "78.36% winning rate"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "compares",
+      "object": "14.6x construction efficiency"
+    },
+    {
+      "subject": "TagRAG",
+      "relation": "compares",
+      "object": "1.9x retrieval efficiency"
+    }
+  ],
+  "paper_id": "2601.05254",
+  "model": "qwen2.5:1.5b"
+}

@@ -65,6 +65,15 @@ class GraphStore:
             for alt in g.objects(node, SKOS.altLabel):
                 self.index.append((norm_key(str(alt)), uri))
 
+    def top_of_type(self, etype: str, k: int = 4) -> list[str]:
+        """Most-connected nodes of one class, e.g. the main Datasets."""
+        nodes = [u for u, t in self.types.items() if t == etype]
+        degree = {}
+        for u in nodes:
+            ref = URIRef(u)
+            degree[u] = sum(1 for _ in self.g.subjects(None, ref)) + sum(1 for _ in self.g.objects(ref, None))
+        return sorted(nodes, key=lambda u: -degree[u])[:k]
+
     def label(self, uri: str) -> str:
         return self.labels.get(uri, uri.rsplit("/", 1)[-1])
 

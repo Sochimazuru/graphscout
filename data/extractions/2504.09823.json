@@ -1,0 +1,39 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Pike-RAG",
+      "type": "Method"
+    },
+    {
+      "name": "Knowledge Graph Construction (KGC)",
+      "type": "Task"
+    },
+    {
+      "name": "Knowledge Graph Construction (KGC) method",
+      "type": "Method"
+    },
+    {
+      "name": "Knowledge Graph Construction (KGC) framework",
+      "type": "Method"
+    },
+    {
+      "name": "Document-level Retrieval Augmented Knowledge Graph Construction (RAKG)",
+      "type": "Method"
+    },
+    {
+      "name": "Document-level Retrieval Augmented Knowledge Graph Construction (RAKG) framework",
+      "type": "Method"
+    },
+    {
+      "name": "Knowledge Graph",
+      "type": "Concept"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2504.09823",
+  "model": "qwen2.5:1.5b"
+}

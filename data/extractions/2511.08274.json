@@ -1,0 +1,51 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Cypher",
+      "type": "Concept"
+    },
+    {
+      "name": "LPG",
+      "type": "Concept"
+    },
+    {
+      "name": "Memgraph",
+      "type": "Model"
+    },
+    {
+      "name": "CypherBench",
+      "type": "Dataset"
+    },
+    {
+      "name": "IFC",
+      "type": "Dataset"
+    },
+    {
+      "name": "Labeled Property Graph (LPG)",
+      "type": "Concept"
+    },
+    {
+      "name": "Resource Description Framework (RDF)",
+      "type": "Concept"
+    },
+    {
+      "name": "Knowledge Graph",
+      "type": "Concept"
+    },
+    {
+      "name": "HotpotQA",
+      "type": "Dataset"
+    },
+    {
+      "name": "Multi-Agent GraphRAG",
+      "type": "Model"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2511.08274",
+  "model": "qwen2.5:1.5b"
+}

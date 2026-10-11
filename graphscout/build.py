@@ -16,7 +16,7 @@ from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import PROV, RDF, RDFS, SKOS, XSD
 
 from .config import Config
-from .extract import THIS_PAPER
+from .extract import THIS_PAPER, validate
 from .resolve import Resolver
 from .schema import KG, SDO, align_relation, ontology_triples
 
@@ -55,6 +55,11 @@ def build_graph(papers: list[dict], extractions: list[dict]) -> tuple[Graph, dic
         for a in p.get("authors", [])[:10]:
             g.add((pu, SDO.author, Literal(a)))
 
+    # Re-clean cached extractions, so build-time fixes apply without re-running the LLM.
+    extractions = [
+        {**validate(ex, max_triples=10**6), "paper_id": ex["paper_id"]} for ex in extractions
+    ]
+
     resolver = Resolver()
     for ex in extractions:
         for e in ex["entities"]:
@@ -69,7 +74,7 @@ def build_graph(papers: list[dict], extractions: list[dict]) -> tuple[Graph, dic
             g.add((eu, SKOS.altLabel, Literal(alias)))
 
     relation_counts: Counter = Counter()
-    skipped = 0
+    skipped = duplicates = 0
     seen = set()
     for ex in extractions:
         pid = ex["paper_id"]
@@ -87,13 +92,14 @@ def build_graph(papers: list[dict], extractions: list[dict]) -> tuple[Graph, dic
                 skipped += 1
                 continue
             prop = align_relation(t["relation"])
-            relation_counts[prop] += 1
             p_uri = KG[prop]
-            g.add((s, p_uri, o))
             key = (s, p_uri, o, pid, t["relation"])
-            if key in seen:
+            if key in seen:  # the model repeated itself; count each fact once
+                duplicates += 1
                 continue
             seen.add(key)
+            relation_counts[prop] += 1
+            g.add((s, p_uri, o))
             st = KG["stmt/" + hashlib.sha1("|".join(map(str, key)).encode()).hexdigest()[:16]]
             g.add((st, RDF.type, RDF.Statement))
             g.add((st, RDF.subject, s))
@@ -114,6 +120,7 @@ def build_graph(papers: list[dict], extractions: list[dict]) -> tuple[Graph, dic
         "relations_by_property": dict(relation_counts.most_common()),
         "relations_mapped_to_schema": total_rel - relation_counts.get("relatedTo", 0),
         "triples_skipped": skipped,
+        "duplicate_triples_removed": duplicates,
         "rdf_triples_total": len(g),
     }
     return g, stats

@@ -1,0 +1,357 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#1a73e8", "id": "http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE", "label": "Stanford CoreNLP-OpenIE", "shape": "dot", "size": 16, "title": "Method: Stanford CoreNLP-OpenIE"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering", "label": "knowledge graph-based question answering", "shape": "dot", "size": 16, "title": "Concept: knowledge graph-based question answering"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/spaCy", "label": "spaCy", "shape": "dot", "size": 16, "title": "Method: spaCy"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "Graph Retrieval-Augmented Generation", "shape": "dot", "size": 16, "title": "Method: Graph Retrieval-Augmented Generation"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2506.06331", "label": "How Significant Are the Real Performa...", "shape": "box", "size": 10, "title": "Paper: How Significant Are the Real Performance Gains? An Unbiased Evaluation Framework for GraphRAG"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/unbiased_evaluation_framework", "label": "unbiased evaluation framework", "shape": "dot", "size": 16, "title": "Concept: unbiased evaluation framework"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2506.19967", "label": "Inference Scaled GraphRAG: Improving ...", "shape": "box", "size": 10, "title": "Paper: Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "Inference-Scaled GraphRAG", "shape": "dot", "size": 16, "title": "Method: Inference-Scaled GraphRAG"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "Plasma GraphRAG framework", "shape": "dot", "size": 16, "title": "Model: Plasma GraphRAG framework"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/domain_specific_knowledge_graph", "label": "domain-specific knowledge graph", "shape": "dot", "size": 16, "title": "Concept: domain-specific knowledge graph"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "GraphRAG-Integration", "shape": "dot", "size": 16, "title": "Method: GraphRAG-Integration"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework", "label": "more reliable and effective GraphRAG ...", "shape": "dot", "size": 16, "title": "Concept: more reliable and effective GraphRAG framework"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/BEACON_SP", "label": "BEACON-SP", "shape": "dot", "size": 16, "title": "Method: BEACON-SP"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework", "label": "ontology-grounded GraphRAG framework", "shape": "dot", "size": 16, "title": "Concept: ontology-grounded GraphRAG framework"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs", "label": "ontology-grounded patient knowledge g...", "shape": "dot", "size": 16, "title": "Model: ontology-grounded patient knowledge graphs"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/TagRAG", "label": "TagRAG", "shape": "dot", "size": 16, "title": "Method: TagRAG"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation", "label": "Tag-Guided Retrieval-Augmented Genera...", "shape": "dot", "size": 16, "title": "Concept: Tag-Guided Retrieval-Augmented Generation"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction", "label": "Tag Knowledge Graph Construction", "shape": "dot", "size": 16, "title": "Concept: Tag Knowledge Graph Construction"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation", "label": "Tag-guided hierarchical knowledge gra...", "shape": "dot", "size": 16, "title": "Concept: Tag-guided hierarchical knowledge graph retrieval-Augmented generation"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance", "label": "efficient global reasoning and scalab...", "shape": "dot", "size": 16, "title": "Concept: efficient global reasoning and scalable graph maintenance"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/two_key_components", "label": "two key components", "shape": "dot", "size": 16, "title": "Concept: two key components"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2509.09272", "label": "Fusing Knowledge and Language: A Comp...", "shape": "box", "size": 10, "title": "Paper: Fusing Knowledge and Language: A Comparative Study of Knowledge Graph-Based Question Answering with LLMs"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering", "label": "three different methodologies for con...", "shape": "dot", "size": 16, "title": "Concept: three different methodologies for constructing knowledge graph triplets and integrating them with Large Language Models (LLMs) for question answering"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2502.11371", "label": "RAG vs. GraphRAG: A Systematic Evalua...", "shape": "box", "size": 10, "title": "Paper: RAG vs. GraphRAG: A Systematic Evaluation and Key Insights"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/comprehensive_benchmark_study", "label": "comprehensive benchmark study", "shape": "dot", "size": 16, "title": "Concept: comprehensive benchmark study"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2503.13804", "label": "Empowering GraphRAG with Knowledge Fi...", "shape": "box", "size": 10, "title": "Paper: Empowering GraphRAG with Knowledge Filtering and Integration"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/GraphRAG_FI", "label": "GraphRAG-FI", "shape": "dot", "size": 16, "title": "Method: GraphRAG-FI"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2507.03608", "label": "Benchmarking Vector, Graph and Hybrid...", "shape": "box", "size": 10, "title": "Paper: Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN)"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Hybrid_GraphRAG", "label": "Hybrid GraphRAG", "shape": "dot", "size": 16, "title": "Model: Hybrid GraphRAG"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Vector_RAG", "label": "Vector RAG", "shape": "dot", "size": 16, "title": "Model: Vector RAG"}, {"color": "#9aa0a6", "id": "http://example.org/graphscout/paper/2603.22528", "label": "GraphRAG for Engineering Diagrams: Ch...", "shape": "box", "size": 10, "title": "Paper: GraphRAG for Engineering Diagrams: ChatP\u0026ID Enables LLM Interaction with P\u0026IDs"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams", "label": "GraphRAG for engineering diagrams", "shape": "dot", "size": 16, "title": "Concept: GraphRAG for engineering diagrams"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation", "label": "Knowledge Graph-Based Iterative Retri...", "shape": "dot", "size": 16, "title": "Method: Knowledge Graph-Based Iterative Retrieval-Augmented Generation"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/ChatP_ID", "label": "ChatP\u0026ID", "shape": "dot", "size": 16, "title": "Method: ChatP\u0026ID"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks", "label": "AI-assisted process engineering tasks", "shape": "dot", "size": 16, "title": "Concept: AI-assisted process engineering tasks"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/intuitive_natural_language_interaction", "label": "intuitive natural-language interaction", "shape": "dot", "size": 16, "title": "Concept: intuitive natural-language interaction"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams", "label": "intuitive natural-language interactio...", "shape": "dot", "size": 16, "title": "Concept: intuitive natural-language interaction with complex engineering diagrams"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Large_Language_Models", "label": "Large Language Models", "shape": "dot", "size": 16, "title": "Model: Large Language Models"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations", "label": "structured retrieval over graph-ancho...", "shape": "dot", "size": 16, "title": "Concept: structured retrieval over graph-anchored entities and relations"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/over_reliance_on_retrievals", "label": "over-reliance on retrievals", "shape": "dot", "size": 16, "title": "Concept: over-reliance on retrievals"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships", "label": "multi-hop reasoning across diagnoses,...", "shape": "dot", "size": 16, "title": "Concept: multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/efficient_knowledge_increment", "label": "efficient knowledge increment", "shape": "dot", "size": 16, "title": "Concept: efficient knowledge increment"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings", "label": "data preprocessing, retrieval configu...", "shape": "dot", "size": 16, "title": "Concept: data preprocessing, retrieval configurations, and generation settings"}, {"color": "#1a73e8", "id": "http://example.org/graphscout/entity/GraphRAG_Filtering", "label": "GraphRAG-Filtering", "shape": "dot", "size": 16, "title": "Method: GraphRAG-Filtering"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/two_stage_filtering_mechanism", "label": "two-stage filtering mechanism", "shape": "dot", "size": 16, "title": "Concept: two-stage filtering mechanism"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/graph_text_grounded_question_generation", "label": "graph-text-grounded question generation", "shape": "dot", "size": 16, "title": "Concept: graph-text-grounded question generation"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories", "label": "parallel scaling and majority voting ...", "shape": "dot", "size": 16, "title": "Concept: parallel scaling and majority voting over sampled trajectories"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal", "label": "sequential scaling and deep chain-of-...", "shape": "dot", "size": 16, "title": "Concept: sequential scaling and deep chain-of-thought graph traversal"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/logits_based_selection_strategy", "label": "logits-based selection strategy", "shape": "dot", "size": 16, "title": "Concept: logits-based selection strategy"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval", "label": "patient knowledge graphs with ontolog...", "shape": "dot", "size": 16, "title": "Concept: patient knowledge graphs with ontology-guided retrieval"}, {"color": "#188038", "id": "http://example.org/graphscout/entity/DEXPI", "label": "DEXPI", "shape": "dot", "size": 16, "title": "Dataset: DEXPI"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Ollama", "label": "Ollama", "shape": "dot", "size": 16, "title": "Model: Ollama"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/consumer_hardware", "label": "consumer hardware", "shape": "dot", "size": 16, "title": "Concept: consumer hardware"}, {"color": "#188038", "id": "http://example.org/graphscout/entity/HotpotQA", "label": "HotpotQA", "shape": "dot", "size": 16, "title": "Dataset: HotpotQA"}, {"color": "#e8710a", "id": "http://example.org/graphscout/entity/clinician_facing_question_answering", "label": "clinician-facing question answering", "shape": "dot", "size": 16, "title": "Task: clinician-facing question answering"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/ORAN_specifications", "label": "ORAN specifications", "shape": "dot", "size": 16, "title": "Concept: ORAN specifications"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/established_generation_metrics", "label": "established generation metrics", "shape": "dot", "size": 16, "title": "Concept: established generation metrics"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/varying_question_complexities", "label": "varying question complexities", "shape": "dot", "size": 16, "title": "Concept: varying question complexities"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/commercial_LLM_APIs", "label": "commercial LLM APIs", "shape": "dot", "size": 16, "title": "Concept: commercial LLM APIs"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Llama_3_1", "label": "Llama 3.1", "shape": "dot", "size": 16, "title": "Model: Llama 3.1"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Mistral", "label": "Mistral", "shape": "dot", "size": 16, "title": "Model: Mistral"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Phi_4_mini", "label": "Phi-4-mini", "shape": "dot", "size": 16, "title": "Model: Phi-4-mini"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/Qwen_2_5", "label": "Qwen 2.5", "shape": "dot", "size": 16, "title": "Model: Qwen 2.5"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/four_models", "label": "four models", "shape": "dot", "size": 16, "title": "Concept: four models"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/global_retrieval", "label": "global retrieval", "shape": "dot", "size": 16, "title": "Concept: global retrieval"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/indexed_efficiency", "label": "indexed efficiency", "shape": "dot", "size": 16, "title": "Concept: indexed efficiency"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/local_retrieval", "label": "local retrieval", "shape": "dot", "size": 16, "title": "Concept: local retrieval"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/real_world_EHR_schema_documentation", "label": "real-world EHR schema documentation", "shape": "dot", "size": 16, "title": "Concept: real-world EHR schema documentation"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/raw_image_inputs", "label": "raw image inputs", "shape": "dot", "size": 16, "title": "Concept: raw image inputs"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/token_costs", "label": "token costs", "shape": "dot", "size": 16, "title": "Concept: token costs"}, {"color": "#d93025", "id": "http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline", "label": "vector-based retrieval-augmented gene...", "shape": "dot", "size": 16, "title": "Model: vector-based retrieval-augmented generation (RAG) baseline"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/14_6x_construction_efficiency", "label": "14.6x construction efficiency", "shape": "dot", "size": 16, "title": "Concept: 14.6x construction efficiency"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/1_9x_retrieval_efficiency", "label": "1.9x retrieval efficiency", "shape": "dot", "size": 16, "title": "Concept: 1.9x retrieval efficiency"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/UltraDomain_datasets", "label": "UltraDomain datasets", "shape": "dot", "size": 16, "title": "Concept: UltraDomain datasets"}, {"color": "#a142f4", "id": "http://example.org/graphscout/entity/Context_relevance", "label": "Context relevance", "shape": "dot", "size": 16, "title": "Metric: Context relevance"}, {"color": "#a142f4", "id": "http://example.org/graphscout/entity/Factual_correctness", "label": "Factual correctness", "shape": "dot", "size": 16, "title": "Metric: Factual correctness"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/multi_hop_question_answering_performance", "label": "multi-hop question answering performance", "shape": "dot", "size": 16, "title": "Concept: multi-hop question answering performance"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines", "label": "substantial gains over both tradition...", "shape": "dot", "size": 16, "title": "Concept: substantial gains over both traditional GraphRAG and prior graph traversal baselines"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding", "label": "completeness, clinical relevance, and...", "shape": "dot", "size": 16, "title": "Concept: completeness, clinical relevance, and evidence grounding"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/factual_accuracy", "label": "factual accuracy", "shape": "dot", "size": 16, "title": "Concept: factual accuracy"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/only_0_004_per_task", "label": "only 0.004 per task", "shape": "dot", "size": 16, "title": "Concept: only 0.004 per task"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks", "label": "information retrieval for complex rea...", "shape": "dot", "size": 16, "title": "Concept: information retrieval for complex reasoning tasks"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously", "label": "performance gains are much more moder...", "shape": "dot", "size": 16, "title": "Concept: performance gains are much more moderate than reported previously"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs", "label": "inference-time scaling is a practical...", "shape": "dot", "size": 16, "title": "Concept: inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains", "label": "accelerates scientific discovery acro...", "shape": "dot", "size": 16, "title": "Concept: accelerates scientific discovery across complex, data-rich domains"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality", "label": "outperforms vanilla RAG by over 10% i...", "shape": "dot", "size": 16, "title": "Concept: outperforms vanilla RAG by over 10% in overall quality"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/over_10_in_overall_quality", "label": "over 10% in overall quality", "shape": "dot", "size": 16, "title": "Concept: over 10% in overall quality"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25", "label": "reduces hallucination rates by up to 25%", "shape": "dot", "size": 16, "title": "Concept: reduces hallucination rates by up to 25%"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives", "label": "distinct strengths of RAG and GraphRA...", "shape": "dot", "size": 16, "title": "Concept: distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases", "label": "failure modes, efficiency trade-offs,...", "shape": "dot", "size": 16, "title": "Concept: failure modes, efficiency trade-offs, and evaluation biases"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems", "label": "key considerations for designing and ...", "shape": "dot", "size": 16, "title": "Concept: key considerations for designing and evaluating retrieval-augmented generation systems"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements", "label": "selection and integration strategies ...", "shape": "dot", "size": 16, "title": "Concept: selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration", "label": "GraphRAG-Filtering\u0027, \u0027GraphRAG-Integr...", "shape": "dot", "size": 16, "title": "Concept: GraphRAG-Filtering\u0027, \u0027GraphRAG-Integration"}, {"color": "#a142f4", "id": "http://example.org/graphscout/entity/hallucinations", "label": "hallucinations", "shape": "dot", "size": 16, "title": "Metric: hallucinations"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/knowledge_gaps", "label": "knowledge gaps", "shape": "dot", "size": 16, "title": "Concept: knowledge gaps"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/knowledge_graph_QA_tasks", "label": "knowledge graph QA tasks", "shape": "dot", "size": 16, "title": "Concept: knowledge graph QA tasks"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/multiple_backbone_models", "label": "multiple backbone models", "shape": "dot", "size": 16, "title": "Concept: multiple backbone models"}, {"color": "#5f6368", "id": "http://example.org/graphscout/entity/structured_knowledge", "label": "structured knowledge", "shape": "dot", "size": 16, "title": "Concept: structured knowledge"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/spaCy", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2506.06331", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/unbiased_evaluation_framework"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2506.19967", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/domain_specific_knowledge_graph"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/two_key_components"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2509.09272", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/comprehensive_benchmark_study"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2503.13804", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/GraphRAG_FI"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Hybrid_GraphRAG"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Vector_RAG"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "proposes", "title": "proposes", "to": "http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/ChatP_ID", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/ChatP_ID", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/intuitive_natural_language_interaction"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/ChatP_ID", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/Large_Language_Models"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/over_reliance_on_retrievals"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/efficient_knowledge_increment"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "addresses", "title": "addresses", "to": "http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Filtering", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/two_stage_filtering_mechanism"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2506.06331", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/graph_text_grounded_question_generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/logits_based_selection_strategy"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/DEXPI"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/Ollama"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "uses", "title": "uses", "to": "http://example.org/graphscout/entity/consumer_hardware"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/HotpotQA"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/spaCy", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/HotpotQA"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/HotpotQA"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/spaCy", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/knowledge_graph_based_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/clinician_facing_question_answering"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/ORAN_specifications"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/established_generation_metrics"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2507.03608", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/varying_question_complexities"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/commercial_LLM_APIs"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/Llama_3_1"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/Mistral"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/Phi_4_mini"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/Qwen_2_5"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/four_models"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/global_retrieval"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/indexed_efficiency"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/local_retrieval"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "evaluatedOn", "title": "evaluatedOn", "to": "http://example.org/graphscout/entity/real_world_EHR_schema_documentation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Vector_RAG", "label": "outperforms", "title": "outperforms", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "outperforms", "title": "outperforms", "to": "http://example.org/graphscout/entity/raw_image_inputs"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "outperforms", "title": "outperforms", "to": "http://example.org/graphscout/entity/token_costs"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/14_6x_construction_efficiency"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/1_9x_retrieval_efficiency"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/TagRAG", "label": "comparedWith", "title": "comparedWith", "to": "http://example.org/graphscout/entity/UltraDomain_datasets"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Hybrid_GraphRAG", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/Context_relevance"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/Context_relevance"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Hybrid_GraphRAG", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/Factual_correctness"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/Factual_correctness"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/multi_hop_question_answering_performance"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/factual_accuracy"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2603.22528", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/only_0_004_per_task"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation", "label": "improves", "title": "improves", "to": "http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2506.06331", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Inference_Scaled_GraphRAG", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/over_10_in_overall_quality"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/Plasma_GraphRAG_framework", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems"}, {"arrows": "to", "from": "http://example.org/graphscout/paper/2502.11371", "label": "reports", "title": "reports", "to": "http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_FI", "label": "partOf", "title": "partOf", "to": "http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/Large_Language_Models"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/hallucinations"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/knowledge_gaps"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/knowledge_graph_QA_tasks"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/multiple_backbone_models"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/GraphRAG_Integration", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/structured_knowledge"}, {"arrows": "to", "from": "http://example.org/graphscout/entity/BEACON_SP", "label": "relatedTo", "title": "relatedTo", "to": "http://example.org/graphscout/entity/clinician_facing_question_answering"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -6000,
+            "springConstant": 0.001,
+            "springLength": 140
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

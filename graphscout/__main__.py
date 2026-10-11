@@ -79,7 +79,7 @@ def cmd_ask(cfg, args):
     from dataclasses import asdict
 
     from .build import load_graph
-    from .llm import OllamaLLM
+    from .llm import LLMError, OllamaLLM
     from .qa import answer_question, trace_to_markdown
     from .store import GraphStore
 
@@ -97,7 +97,12 @@ def cmd_ask(cfg, args):
     traces = []
     for q in questions:
         print(f"\n? {q}", flush=True)
-        trace = answer_question(llm, store, cfg, q)
+        try:
+            trace = answer_question(llm, store, cfg, q)
+        except LLMError as exc:
+            print(f"   skipped: {exc}")
+            md.append(f"### Q: {q}\n\nSkipped: {exc}\n")
+            continue
         block = trace_to_markdown(trace, store)
         print(block)
         md.append(block)

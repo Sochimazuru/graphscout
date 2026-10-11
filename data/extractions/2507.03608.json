@@ -1,0 +1,135 @@
+{
+  "entities": [
+    {
+      "name": "Vector RAG",
+      "type": "Model"
+    },
+    {
+      "name": "GraphRAG",
+      "type": "Model"
+    },
+    {
+      "name": "Hybrid GraphRAG",
+      "type": "Model"
+    },
+    {
+      "name": "RAG",
+      "type": "Model"
+    },
+    {
+      "name": "ORAN",
+      "type": "Task"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "RIC",
+      "type": "Concept"
+    },
+    {
+      "name": "ORAN Intelligent Controller",
+      "type": "Concept"
+    },
+    {
+      "name": "Open Radio Access Networks",
+      "type": "Task"
+    },
+    {
+      "name": "Factual correctness",
+      "type": "Metric"
+    },
+    {
+      "name": "Context relevance",
+      "type": "Metric"
+    },
+    {
+      "name": "Answer relevance",
+      "type": "Metric"
+    },
+    {
+      "name": "Faithfulness",
+      "type": "Metric"
+    },
+    {
+      "name": "ORAN specifications",
+      "type": "Concept"
+    },
+    {
+      "name": "varying question complexities",
+      "type": "Concept"
+    },
+    {
+      "name": "established generation metrics",
+      "type": "Concept"
+    },
+    {
+      "name": "factual correctness",
+      "type": "Concept"
+    },
+    {
+      "name": "context relevance",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "Vector RAG"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "GraphRAG"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "Hybrid GraphRAG"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "evaluated on",
+      "object": "ORAN specifications"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "assesses performance",
+      "object": "varying question complexities"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "assesses performance",
+      "object": "established generation metrics"
+    },
+    {
+      "subject": "Vector RAG",
+      "relation": "outperforms",
+      "object": "GraphRAG"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "factual correctness"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "context relevance"
+    },
+    {
+      "subject": "Hybrid GraphRAG",
+      "relation": "improves",
+      "object": "factual correctness"
+    },
+    {
+      "subject": "Hybrid GraphRAG",
+      "relation": "improves",
+      "object": "context relevance"
+    }
+  ],
+  "paper_id": "2507.03608",
+  "model": "qwen2.5:1.5b"
+}

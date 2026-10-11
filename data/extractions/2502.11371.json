@@ -1,0 +1,102 @@
+{
+  "entities": [
+    {
+      "name": "RAG",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "question answering",
+      "type": "Task"
+    },
+    {
+      "name": "query-based summarization",
+      "type": "Task"
+    },
+    {
+      "name": "knowledge graph",
+      "type": "Dataset"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "text-based tasks",
+      "type": "Task"
+    },
+    {
+      "name": "structured data",
+      "type": "Dataset"
+    },
+    {
+      "name": "unstructured text",
+      "type": "Dataset"
+    },
+    {
+      "name": "text benchmarks",
+      "type": "Dataset"
+    },
+    {
+      "name": "comprehensive benchmark study",
+      "type": "Concept"
+    },
+    {
+      "name": "data preprocessing, retrieval configurations, and generation settings",
+      "type": "Concept"
+    },
+    {
+      "name": "distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives",
+      "type": "Concept"
+    },
+    {
+      "name": "selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements",
+      "type": "Concept"
+    },
+    {
+      "name": "failure modes, efficiency trade-offs, and evaluation biases",
+      "type": "Concept"
+    },
+    {
+      "name": "key considerations for designing and evaluating retrieval-augmented generation systems",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "comprehensive benchmark study"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "standardizes",
+      "object": "data preprocessing, retrieval configurations, and generation settings"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "highlights",
+      "object": "distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "explains",
+      "object": "selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "analyzes",
+      "object": "failure modes, efficiency trade-offs, and evaluation biases"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "highlights",
+      "object": "key considerations for designing and evaluating retrieval-augmented generation systems"
+    }
+  ],
+  "paper_id": "2502.11371",
+  "model": "qwen2.5:1.5b"
+}

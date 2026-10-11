@@ -1,0 +1,11 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2605.28004",
+  "model": "qwen2.5:1.5b"
+}

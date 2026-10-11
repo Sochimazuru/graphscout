@@ -1,0 +1,108 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "KG-IRAG",
+      "type": "Method"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "KG",
+      "type": "Dataset"
+    },
+    {
+      "name": "QAs",
+      "type": "Task"
+    },
+    {
+      "name": "weatherQA-Irish",
+      "type": "Dataset"
+    },
+    {
+      "name": "weatherQA-Sydney",
+      "type": "Dataset"
+    },
+    {
+      "name": "trafficQA-TFNSW",
+      "type": "Dataset"
+    },
+    {
+      "name": "Knowledge Graph-Based Iterative Retrieval-Augmented Generation (KG-IRAG)",
+      "type": "Concept"
+    },
+    {
+      "name": "information retrieval for complex reasoning tasks",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "GraphRAG",
+      "relation": "proposes",
+      "object": "Knowledge Graph-Based Iterative Retrieval-Augmented Generation (KG-IRAG)"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "improves",
+      "object": "information retrieval for complex reasoning tasks"
+    }
+  ],
+  "paper_id": "2503.14234",
+  "model": "qwen2.5:1.5b"
+}

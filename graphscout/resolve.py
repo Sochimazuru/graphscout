@@ -13,13 +13,16 @@ from collections import Counter, defaultdict
 
 from .schema import align_type
 
-ACRONYM_RE = re.compile(r"^(?P<full>.+?)\s*\((?P<acr>[^()]{2,15})\)\s*$")
+ACRONYM_RE = re.compile(r"^(?P<full>.+?)\s*\((?P<acr>[^()]{2,15})\)\s*(?P<tail>[A-Za-z ]{0,20})$")
+GENERIC_SUFFIXES = {"framework", "approach", "pipeline"}
 
 
 def split_acronym(name: str) -> tuple[str, str | None]:
     m = ACRONYM_RE.match(name.strip())
     if m:
-        return m.group("full").strip(), m.group("acr").strip()
+        tail = m.group("tail").strip().lower()
+        if not tail or tail in GENERIC_SUFFIXES:
+            return m.group("full").strip(), m.group("acr").strip()
     return name.strip(), None
 
 
@@ -27,6 +30,8 @@ def norm_key(name: str) -> str:
     s = name.lower().replace("-", " ").replace("_", " ")
     s = re.sub(r"[^a-z0-9 ]+", "", s)
     words = [w for w in s.split() if w not in {"the", "a", "an"}]
+    while len(words) > 1 and words[-1] in GENERIC_SUFFIXES:
+        words.pop()
     if words and len(words[-1]) > 3 and words[-1].endswith("s") and not words[-1].endswith("ss"):
         words[-1] = words[-1][:-1]
     return " ".join(words)
@@ -130,10 +135,10 @@ class Resolver:
 
     @staticmethod
     def _pick_type(types: Counter) -> str:
-        specific = Counter({t: c for t, c in types.items() if t != "Concept"})
-        if specific:
-            return specific.most_common(1)[0][0]
-        return "Concept"
+        """Majority vote over every label the model gave. Ties go to a specific type."""
+        if not types:
+            return "Concept"
+        return max(types.items(), key=lambda kv: (kv[1], kv[0] != "Concept"))[0]
 
     def lookup(self, name: str) -> dict | None:
         if not self._built:

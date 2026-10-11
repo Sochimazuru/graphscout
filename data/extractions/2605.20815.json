@@ -1,0 +1,152 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG pipeline",
+      "type": "Method"
+    },
+    {
+      "name": "Microsoft GraphRAG pipeline",
+      "type": "Method"
+    },
+    {
+      "name": "Llama 3.1",
+      "type": "Model"
+    },
+    {
+      "name": "Mistral",
+      "type": "Model"
+    },
+    {
+      "name": "Qwen 2.5",
+      "type": "Model"
+    },
+    {
+      "name": "Phi-4-mini",
+      "type": "Model"
+    },
+    {
+      "name": "EHR schema retrieval",
+      "type": "Task"
+    },
+    {
+      "name": "Electronic Health Record (EHR)",
+      "type": "Dataset"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "consumer hardware",
+      "type": "Concept"
+    },
+    {
+      "name": "consumer GPU",
+      "type": "Concept"
+    },
+    {
+      "name": "Ollama",
+      "type": "Model"
+    },
+    {
+      "name": "local retrieval",
+      "type": "Concept"
+    },
+    {
+      "name": "global retrieval",
+      "type": "Concept"
+    },
+    {
+      "name": "structured reasoning",
+      "type": "Concept"
+    },
+    {
+      "name": "structured output errors",
+      "type": "Concept"
+    },
+    {
+      "name": "regulated settings",
+      "type": "Concept"
+    },
+    {
+      "name": "real-world EHR schema documentation",
+      "type": "Concept"
+    },
+    {
+      "name": "four models",
+      "type": "Concept"
+    },
+    {
+      "name": "indexed efficiency",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "GraphRAG",
+      "relation": "proposes",
+      "object": "GraphRAG pipeline"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "implemented on",
+      "object": "real-world EHR schema documentation"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "deployed via",
+      "object": "Ollama"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "deployed on",
+      "object": "consumer hardware"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "four models"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "Llama 3.1"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "Mistral"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "Qwen 2.5"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "Phi-4-mini"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "local retrieval"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "global retrieval"
+    },
+    {
+      "subject": "GraphRAG pipeline",
+      "relation": "evaluated on",
+      "object": "indexed efficiency"
+    }
+  ],
+  "paper_id": "2605.20815",
+  "model": "qwen2.5:1.5b"
+}

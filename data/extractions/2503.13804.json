@@ -1,0 +1,180 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG-Filtering",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG-Integration",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG-FI",
+      "type": "Method"
+    },
+    {
+      "name": "HotpotQA",
+      "type": "Dataset"
+    },
+    {
+      "name": "beam search",
+      "type": "Method"
+    },
+    {
+      "name": "knowledge graph",
+      "type": "Concept"
+    },
+    {
+      "name": "knowledge gaps",
+      "type": "Concept"
+    },
+    {
+      "name": "hallucinations",
+      "type": "Concept"
+    },
+    {
+      "name": "LLMs",
+      "type": "Concept"
+    },
+    {
+      "name": "natural language processing",
+      "type": "Concept"
+    },
+    {
+      "name": "structured knowledge",
+      "type": "Concept"
+    },
+    {
+      "name": "external graphs",
+      "type": "Concept"
+    },
+    {
+      "name": "retrieved information",
+      "type": "Concept"
+    },
+    {
+      "name": "excessive reliance",
+      "type": "Concept"
+    },
+    {
+      "name": "intrinsic reasoning",
+      "type": "Concept"
+    },
+    {
+      "name": "backbone models",
+      "type": "Concept"
+    },
+    {
+      "name": "['GraphRAG-Filtering', 'GraphRAG-Integration']",
+      "type": "Concept"
+    },
+    {
+      "name": "['two-stage filtering mechanism']",
+      "type": "Concept"
+    },
+    {
+      "name": "['logits-based selection strategy']",
+      "type": "Concept"
+    },
+    {
+      "name": "['over-reliance on retrievals']",
+      "type": "Concept"
+    },
+    {
+      "name": "['more reliable and effective GraphRAG framework']",
+      "type": "Concept"
+    },
+    {
+      "name": "['knowledge graph QA tasks']",
+      "type": "Concept"
+    },
+    {
+      "name": "['multiple backbone models']",
+      "type": "Concept"
+    },
+    {
+      "name": "['knowledge gaps']",
+      "type": "Concept"
+    },
+    {
+      "name": "['hallucinations']",
+      "type": "Concept"
+    },
+    {
+      "name": "['LLMs']",
+      "type": "Concept"
+    },
+    {
+      "name": "['structured knowledge']",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "GraphRAG-FI"
+    },
+    {
+      "subject": "GraphRAG-FI",
+      "relation": "consists of",
+      "object": "['GraphRAG-Filtering', 'GraphRAG-Integration']"
+    },
+    {
+      "subject": "GraphRAG-Filtering",
+      "relation": "employs",
+      "object": "['two-stage filtering mechanism']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "employs",
+      "object": "['logits-based selection strategy']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "reduces",
+      "object": "['over-reliance on retrievals']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "establishes",
+      "object": "['more reliable and effective GraphRAG framework']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['knowledge graph QA tasks']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['multiple backbone models']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['knowledge gaps']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['hallucinations']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['LLMs']"
+    },
+    {
+      "subject": "GraphRAG-Integration",
+      "relation": "on",
+      "object": "['structured knowledge']"
+    }
+  ],
+  "paper_id": "2503.13804",
+  "model": "qwen2.5:1.5b"
+}

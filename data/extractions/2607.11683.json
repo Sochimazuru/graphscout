@@ -1,0 +1,35 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG engine",
+      "type": "Model"
+    },
+    {
+      "name": "Meno-Lite-0.1",
+      "type": "Model"
+    },
+    {
+      "name": "Qwen2.5-32B",
+      "type": "Model"
+    },
+    {
+      "name": "GraphRAG-Bench",
+      "type": "Dataset"
+    },
+    {
+      "name": "Multi-hop factoid QA",
+      "type": "Task"
+    },
+    {
+      "name": "HippoRAG2",
+      "type": "Model"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2607.11683",
+  "model": "qwen2.5:1.5b"
+}

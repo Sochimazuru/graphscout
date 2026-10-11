@@ -1,0 +1,695 @@
+[
+  {
+    "question": "Which methods are evaluated on HotpotQA?",
+    "plan": "Identify the methods used in the evaluation of HotpotQA, including the specific tasks, datasets, models, and concepts involved.",
+    "mentions": [
+      "HotpotQA",
+      "methods",
+      "HotpotQA evaluation",
+      "HotpotQA tasks",
+      "HotpotQA datasets"
+    ],
+    "seeds": [
+      "HotpotQA"
+    ],
+    "hops": [
+      {
+        "hop": 0,
+        "frontier": [
+          "HotpotQA"
+        ],
+        "candidates": 3,
+        "chosen": [
+          "Stanford CoreNLP-OpenIE --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+          "spaCy --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+          "Graph Retrieval-Augmented Generation --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")"
+        ],
+        "reason": "routed by relation words in the question: evaluatedOn"
+      },
+      {
+        "hop": 1,
+        "frontier": [
+          "HotpotQA"
+        ],
+        "candidates": 4,
+        "chosen": [
+          "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs --mentions--> HotpotQA",
+          "Empowering GraphRAG with Knowledge Filtering and Integration --mentions--> HotpotQA"
+        ],
+        "reason": "The edges [0] and [3] provide information about methods that are evaluated on HotpotQA, which directly answers the question."
+      },
+      {
+        "hop": 2,
+        "frontier": [
+          "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs",
+          "Empowering GraphRAG with Knowledge Filtering and Integration"
+        ],
+        "candidates": 6,
+        "chosen": [
+          "Empowering GraphRAG with Knowledge Filtering and Integration --proposes--> GraphRAG-FI (paper wording: \"proposes\")",
+          "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs --mentions--> Graph Retrieval-Augmented Generation"
+        ],
+        "reason": "The evidence provided includes the evaluation of GraphRAG with Knowledge Filtering and Integration, which is evaluated on HotpotQA. This directly answers the question."
+      },
+      {
+        "hop": 3,
+        "frontier": [
+          "GraphRAG-FI",
+          "Graph Retrieval-Augmented Generation"
+        ],
+        "candidates": 29,
+        "chosen": [
+          "GraphRAG-FI --partOf--> GraphRAG-Filtering', 'GraphRAG-Integration (paper wording: \"consists of\")",
+          "Graph Retrieval-Augmented Generation --evaluatedOn--> Phi-4-mini (paper wording: \"evaluated on\")"
+        ],
+        "reason": "The edges [0] and [3] provide direct evidence that Graph Retrieval-Augmented Generation is evaluated on HotpotQA, which directly answers the question."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "fact": "Stanford CoreNLP-OpenIE --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E2",
+        "fact": "spaCy --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E3",
+        "fact": "Graph Retrieval-Augmented Generation --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E4",
+        "fact": "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs --mentions--> HotpotQA",
+        "sources": [
+          "2511.08274"
+        ]
+      },
+      {
+        "id": "E5",
+        "fact": "Empowering GraphRAG with Knowledge Filtering and Integration --mentions--> HotpotQA",
+        "sources": [
+          "2503.13804"
+        ]
+      },
+      {
+        "id": "E6",
+        "fact": "Empowering GraphRAG with Knowledge Filtering and Integration --proposes--> GraphRAG-FI (paper wording: \"proposes\")",
+        "sources": [
+          "2503.13804"
+        ]
+      },
+      {
+        "id": "E7",
+        "fact": "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs --mentions--> Graph Retrieval-Augmented Generation",
+        "sources": [
+          "2511.08274"
+        ]
+      },
+      {
+        "id": "E8",
+        "fact": "GraphRAG-FI --partOf--> GraphRAG-Filtering', 'GraphRAG-Integration (paper wording: \"consists of\")",
+        "sources": [
+          "2503.13804"
+        ]
+      },
+      {
+        "id": "E9",
+        "fact": "Graph Retrieval-Augmented Generation --evaluatedOn--> Phi-4-mini (paper wording: \"evaluated on\")",
+        "sources": [
+          "2605.20815"
+        ]
+      }
+    ],
+    "answer": "The methods evaluated on HotpotQA include Stanford CoreNLP-OpenIE, spaCy, Graph Retrieval-Augmented Generation, Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs, Empowering GraphRAG with Knowledge Filtering and Integration, and GraphRAG-FI.",
+    "cited": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9"
+    ],
+    "confidence": "cites 9 of 9 evidence facts (6 direct facts, not just 'paper mentions X'); 1 of 1 sentences have no citation",
+    "uncited_sentences": 1
+  },
+  {
+    "question": "What does Inference-Scaled GraphRAG use, and what does it improve?",
+    "plan": "Inference-Scaled GraphRAG is a method that scales the GraphRAG model to handle larger graphs by incorporating inference techniques.",
+    "mentions": [
+      "Inference-Scaled GraphRAG",
+      "Inference-Scaled GraphRAG uses",
+      "Inference-Scaled GraphRAG improves"
+    ],
+    "seeds": [
+      "Inference-Scaled GraphRAG"
+    ],
+    "hops": [
+      {
+        "hop": 0,
+        "frontier": [
+          "Inference-Scaled GraphRAG"
+        ],
+        "candidates": 4,
+        "chosen": [
+          "Inference-Scaled GraphRAG --improves--> multi-hop question answering performance (paper wording: \"improves\")",
+          "Inference-Scaled GraphRAG --improves--> substantial gains over both traditional GraphRAG and prior graph traversal baselines (paper wording: \"achieves\")",
+          "Inference-Scaled GraphRAG --uses--> parallel scaling and majority voting over sampled trajectories (paper wording: \"combines\")",
+          "Inference-Scaled GraphRAG --uses--> sequential scaling and deep chain-of-thought graph traversal (paper wording: \"combines\")"
+        ],
+        "reason": "routed by relation words in the question: improves, uses"
+      },
+      {
+        "hop": 1,
+        "frontier": [
+          "Inference-Scaled GraphRAG"
+        ],
+        "candidates": 3,
+        "chosen": [
+          "Inference-Scaled GraphRAG --reports--> inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs (paper wording: \"suggests\")"
+        ],
+        "reason": "The edge [0] provides additional context about the practicality and architecture-agnostic nature of inference-time scaling, which is relevant to the question. The edge [3] directly mentions Inference-Scaled GraphRAG, which is the subject of the question."
+      },
+      {
+        "hop": 2,
+        "frontier": [
+          "inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs"
+        ],
+        "candidates": 1,
+        "chosen": [
+          "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --mentions--> inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs"
+        ],
+        "reason": "The edge [0] provides the context for the question, explaining that Inference-Scaled GraphRAG is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs. The edge [3] directly answers the question by stating that Inference-Scaled GraphRAG uses parallel scaling and majority voting over sampled trajectories, which is a key improvement over traditional GraphRAG and prior baselines."
+      },
+      {
+        "hop": 3,
+        "frontier": [
+          "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs"
+        ],
+        "candidates": 6,
+        "chosen": [
+          "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --proposes--> Inference-Scaled GraphRAG (paper wording: \"proposes\")",
+          "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --mentions--> Graph Retrieval-Augmented Generation"
+        ],
+        "reason": "The edge [0] connects Inference Scaled GraphRAG to the paper proposing it, and edge [3] connects Inference Scaled GraphRAG to the paper discussing its improvements, both of which are relevant to the question."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "fact": "Inference-Scaled GraphRAG --improves--> multi-hop question answering performance (paper wording: \"improves\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E2",
+        "fact": "Inference-Scaled GraphRAG --improves--> substantial gains over both traditional GraphRAG and prior graph traversal baselines (paper wording: \"achieves\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E3",
+        "fact": "Inference-Scaled GraphRAG --uses--> parallel scaling and majority voting over sampled trajectories (paper wording: \"combines\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E4",
+        "fact": "Inference-Scaled GraphRAG --uses--> sequential scaling and deep chain-of-thought graph traversal (paper wording: \"combines\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E5",
+        "fact": "Inference-Scaled GraphRAG --reports--> inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs (paper wording: \"suggests\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E6",
+        "fact": "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --mentions--> inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E7",
+        "fact": "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --proposes--> Inference-Scaled GraphRAG (paper wording: \"proposes\")",
+        "sources": [
+          "2506.19967"
+        ]
+      },
+      {
+        "id": "E8",
+        "fact": "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs --mentions--> Graph Retrieval-Augmented Generation",
+        "sources": [
+          "2506.19967"
+        ]
+      }
+    ],
+    "answer": "Inference-Scaled GraphRAG uses parallel scaling and majority voting over sampled trajectories, and sequential scaling and deep chain-of-thought graph traversal to improve multi-hop question answering performance.",
+    "cited": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8"
+    ],
+    "confidence": "cites 8 of 8 evidence facts (6 direct facts, not just 'paper mentions X'); 1 of 1 sentences have no citation",
+    "uncited_sentences": 1
+  },
+  {
+    "question": "What is GraphRAG compared with, and which approach outperforms it?",
+    "plan": "Research Papers: GraphRAG is a method for analyzing research papers. Graph Neural Networks (GNNs) are a type of neural network used for graph data. The question asks about the performance of GraphRAG compared to GNNs.",
+    "mentions": [
+      "GraphRAG",
+      "Graph Neural Networks (GNNs)",
+      "Research Papers"
+    ],
+    "seeds": [
+      "Graph Retrieval-Augmented Generation"
+    ],
+    "hops": [
+      {
+        "hop": 0,
+        "frontier": [
+          "Graph Retrieval-Augmented Generation"
+        ],
+        "candidates": 3,
+        "chosen": [
+          "Vector RAG --outperforms--> Graph Retrieval-Augmented Generation (paper wording: \"outperforms\")",
+          "BEACON-SP --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compared with\")",
+          "TagRAG --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compares\")"
+        ],
+        "reason": "routed by relation words in the question: comparedWith, outperforms"
+      },
+      {
+        "hop": 1,
+        "frontier": [
+          "Graph Retrieval-Augmented Generation"
+        ],
+        "candidates": 26,
+        "chosen": [
+          "Graph Retrieval-Augmented Generation --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+          "Graph Retrieval-Augmented Generation --evaluatedOn--> Phi-4-mini (paper wording: \"evaluated on\")"
+        ],
+        "reason": "The evidence provided indicates that Graph Retrieval-Augmented Generation is evaluated on various models and real-world EHR schema documentation, which suggests it is compared with other approaches. The edge [0] indicates that Graph Retrieval-Augmented Generation is evaluated on HotpotQA, Llama 3.1, Mistral, Phi-4-mini, Qwen 2.5, and four models, while the edge [3] indicates that it is evaluated on real-world EHR schema documentation, which suggests it is compared with other approaches."
+      },
+      {
+        "hop": 2,
+        "frontier": [
+          "HotpotQA",
+          "Phi-4-mini"
+        ],
+        "candidates": 7,
+        "chosen": [
+          "Stanford CoreNLP-OpenIE --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+          "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis --mentions--> HotpotQA"
+        ],
+        "reason": "The evidence provided includes references to HotpotQA, which is mentioned in the evaluation of Graph Retrieval-Augmented Generation, indicating that it is a key performance metric for this approach. The paper also mentions a comparative analysis of GraphRAG, suggesting that it is being compared with other approaches, including Graph Retrieval-Augmented Generation."
+      },
+      {
+        "hop": 3,
+        "frontier": [
+          "Stanford CoreNLP-OpenIE",
+          "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis"
+        ],
+        "candidates": 7,
+        "chosen": [
+          "Stanford CoreNLP-OpenIE --evaluatedOn--> knowledge graph-based question answering (paper wording: \"evaluated on\")",
+          "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis --mentions--> Factual hallucinations"
+        ],
+        "reason": "The evidence includes references to Stanford CoreNLP-OpenIE, which is evaluated on HotpotQA, and mentions Graph Retrieval-Augmented Generation, which is compared with other approaches. This information helps identify the approaches that are compared with GraphRAG and the evaluation metric used, which is HotpotQA."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "fact": "Vector RAG --outperforms--> Graph Retrieval-Augmented Generation (paper wording: \"outperforms\")",
+        "sources": [
+          "2507.03608"
+        ]
+      },
+      {
+        "id": "E2",
+        "fact": "BEACON-SP --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compared with\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E3",
+        "fact": "TagRAG --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compares\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E4",
+        "fact": "Graph Retrieval-Augmented Generation --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E5",
+        "fact": "Graph Retrieval-Augmented Generation --evaluatedOn--> Phi-4-mini (paper wording: \"evaluated on\")",
+        "sources": [
+          "2605.20815"
+        ]
+      },
+      {
+        "id": "E6",
+        "fact": "Stanford CoreNLP-OpenIE --evaluatedOn--> HotpotQA (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E7",
+        "fact": "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis --mentions--> HotpotQA",
+        "sources": [
+          "2603.05698"
+        ]
+      },
+      {
+        "id": "E8",
+        "fact": "Stanford CoreNLP-OpenIE --evaluatedOn--> knowledge graph-based question answering (paper wording: \"evaluated on\")",
+        "sources": [
+          "2509.09272"
+        ]
+      },
+      {
+        "id": "E9",
+        "fact": "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis --mentions--> Factual hallucinations",
+        "sources": [
+          "2603.05698"
+        ]
+      }
+    ],
+    "answer": "GraphRAG is compared with other methods such as Vector RAG, BEACON-SP, TagRAG, and Stanford CoreNLP-OpenIE. It outperforms these methods on tasks like HotpotQA and Phi-4-mini.",
+    "cited": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9"
+    ],
+    "confidence": "cites 9 of 9 evidence facts (7 direct facts, not just 'paper mentions X'); 2 of 2 sentences have no citation",
+    "uncited_sentences": 2
+  },
+  {
+    "question": "What does BEACON-SP improve, and what is it compared with?",
+    "plan": "First, find information about BEACON-SP. Then, identify what it improves. Finally, determine what it is compared with.",
+    "mentions": [
+      "BEACON-SP",
+      "improves",
+      "compared with"
+    ],
+    "seeds": [
+      "BEACON-SP"
+    ],
+    "hops": [
+      {
+        "hop": 0,
+        "frontier": [
+          "BEACON-SP"
+        ],
+        "candidates": 4,
+        "chosen": [
+          "BEACON-SP --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compared with\")",
+          "BEACON-SP --comparedWith--> vector-based retrieval-augmented generation (RAG) baseline (paper wording: \"compared with\")",
+          "BEACON-SP --improves--> completeness, clinical relevance, and evidence grounding (paper wording: \"improves\")",
+          "BEACON-SP --improves--> factual accuracy (paper wording: \"improves\")"
+        ],
+        "reason": "routed by relation words in the question: improves, comparedWith"
+      },
+      {
+        "hop": 1,
+        "frontier": [
+          "BEACON-SP"
+        ],
+        "candidates": 7,
+        "chosen": [
+          "BEACON-SP --addresses--> multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships (paper wording: \"supports\")",
+          "BEACON-SP --proposes--> ontology-grounded patient knowledge graphs (paper wording: \"constructed\")"
+        ],
+        "reason": "The edge [0] addresses multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships, which is a key aspect of BEACON-SP. The edge [3] proposes ontology-grounded patient knowledge graphs, which is also a key aspect of BEACON-SP. These edges help answer the question about what BEACON-SP improves and what it is compared with."
+      },
+      {
+        "hop": 2,
+        "frontier": [
+          "multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships",
+          "ontology-grounded patient knowledge graphs"
+        ],
+        "candidates": 2,
+        "chosen": [
+          "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships"
+        ],
+        "reason": "The edge [0] provides information about the multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships, which is directly related to the question about what BEACON-SP improves. The edge [3] mentions that BEACON-SP improves completeness, clinical relevance, and evidence grounding, which are also directly related to the question. The edge [1] provides information about the ontology-grounded patient knowledge graphs, which is also related to the question."
+      },
+      {
+        "hop": 3,
+        "frontier": [
+          "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment"
+        ],
+        "candidates": 5,
+        "chosen": [
+          "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> BEACON-SP",
+          "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> Suicide Social Determinants of Health Ontology"
+        ],
+        "reason": "The edge [0] mentions that BEACON-SP addresses multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships, which is relevant to the question. The edge [3] mentions that BEACON-SP proposes an ontology-grounded patient knowledge graph, which is also relevant to the question."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "fact": "BEACON-SP --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compared with\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E2",
+        "fact": "BEACON-SP --comparedWith--> vector-based retrieval-augmented generation (RAG) baseline (paper wording: \"compared with\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E3",
+        "fact": "BEACON-SP --improves--> completeness, clinical relevance, and evidence grounding (paper wording: \"improves\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E4",
+        "fact": "BEACON-SP --improves--> factual accuracy (paper wording: \"improves\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E5",
+        "fact": "BEACON-SP --addresses--> multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships (paper wording: \"supports\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E6",
+        "fact": "BEACON-SP --proposes--> ontology-grounded patient knowledge graphs (paper wording: \"constructed\")",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E7",
+        "fact": "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E8",
+        "fact": "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> BEACON-SP",
+        "sources": [
+          "2610.09026"
+        ]
+      },
+      {
+        "id": "E9",
+        "fact": "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment --mentions--> Suicide Social Determinants of Health Ontology",
+        "sources": [
+          "2610.09026"
+        ]
+      }
+    ],
+    "answer": "BEACON-SP improves completeness, clinical relevance, and evidence grounding, and it is compared with vector-based retrieval-augmented generation (RAG) baseline.",
+    "cited": [
+      "E1"
+    ],
+    "confidence": "cites 1 of 9 evidence facts (1 direct facts, not just 'paper mentions X'); 1 of 1 sentences have no citation",
+    "uncited_sentences": 1
+  },
+  {
+    "question": "What does TagRAG compare itself with, and what does it support?",
+    "plan": "Use the knowledge graph to find information about TagRAG, its comparison with other systems, and the tasks it supports.",
+    "mentions": [
+      "TagRAG",
+      "comparison with",
+      "support for"
+    ],
+    "seeds": [
+      "TagRAG"
+    ],
+    "hops": [
+      {
+        "hop": 0,
+        "frontier": [
+          "TagRAG"
+        ],
+        "candidates": 4,
+        "chosen": [
+          "TagRAG --comparedWith--> 14.6x construction efficiency (paper wording: \"compares\")",
+          "TagRAG --comparedWith--> 1.9x retrieval efficiency (paper wording: \"compares\")",
+          "TagRAG --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compares\")",
+          "TagRAG --comparedWith--> UltraDomain datasets (paper wording: \"compares\")"
+        ],
+        "reason": "routed by relation words in the question: comparedWith"
+      },
+      {
+        "hop": 1,
+        "frontier": [
+          "TagRAG"
+        ],
+        "candidates": 7,
+        "chosen": [
+          "TagRAG --addresses--> efficient knowledge increment (paper wording: \"supports\")",
+          "TagRAG --proposes--> Tag-guided hierarchical knowledge graph retrieval-Augmented generation (paper wording: \"proposes\")"
+        ],
+        "reason": "The evidence collected shows TagRAG addresses efficient knowledge increment and proposes Tag-Guided Retrieval-Augmented Generation and Tag-Knowledge Graph Construction, which are directly related to the question about what TagRAG compares itself with and what it supports."
+      },
+      {
+        "hop": 2,
+        "frontier": [
+          "efficient knowledge increment",
+          "Tag-guided hierarchical knowledge graph retrieval-Augmented generation"
+        ],
+        "candidates": 2,
+        "chosen": [
+          "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> efficient knowledge increment"
+        ],
+        "reason": "The evidence provided includes TagRAG's comparison with various datasets and its support for efficient knowledge increment, which directly answers the question."
+      },
+      {
+        "hop": 3,
+        "frontier": [
+          "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation"
+        ],
+        "candidates": 5,
+        "chosen": [
+          "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> 14.6x construction efficiency",
+          "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> TagRAG"
+        ],
+        "reason": "The evidence provided does not directly answer what TagRAG compares itself with or what it supports. The edge [0] mentions 14.6x construction efficiency and 1.9x retrieval efficiency, which are compared to TagRAG, but the edge [3] mentions TagRAG itself, which is not what the question is asking."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "fact": "TagRAG --comparedWith--> 14.6x construction efficiency (paper wording: \"compares\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E2",
+        "fact": "TagRAG --comparedWith--> 1.9x retrieval efficiency (paper wording: \"compares\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E3",
+        "fact": "TagRAG --comparedWith--> Graph Retrieval-Augmented Generation (paper wording: \"compares\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E4",
+        "fact": "TagRAG --comparedWith--> UltraDomain datasets (paper wording: \"compares\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E5",
+        "fact": "TagRAG --addresses--> efficient knowledge increment (paper wording: \"supports\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E6",
+        "fact": "TagRAG --proposes--> Tag-guided hierarchical knowledge graph retrieval-Augmented generation (paper wording: \"proposes\")",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E7",
+        "fact": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> efficient knowledge increment",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E8",
+        "fact": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> 14.6x construction efficiency",
+        "sources": [
+          "2601.05254"
+        ]
+      },
+      {
+        "id": "E9",
+        "fact": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation --mentions--> TagRAG",
+        "sources": [
+          "2601.05254"
+        ]
+      }
+    ],
+    "answer": "TagRAG compares itself with 14.6x construction efficiency, 1.9x retrieval efficiency, Graph Retrieval-Augmented Generation, and UltraDomain datasets.",
+    "cited": [
+      "E1"
+    ],
+    "confidence": "cites 1 of 9 evidence facts (1 direct facts, not just 'paper mentions X'); 1 of 1 sentences have no citation",
+    "uncited_sentences": 1
+  }
+]

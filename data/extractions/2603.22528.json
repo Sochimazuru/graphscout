@@ -1,0 +1,155 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG for engineering diagrams",
+      "type": "Concept"
+    },
+    {
+      "name": "ChatP&ID",
+      "type": "Method"
+    },
+    {
+      "name": "DEXPI",
+      "type": "Dataset"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "P&IDs",
+      "type": "Task"
+    },
+    {
+      "name": "Piping and Instrumentation Diagrams",
+      "type": "Task"
+    },
+    {
+      "name": "smart P&ID files",
+      "type": "Dataset"
+    },
+    {
+      "name": "DEXPI standard",
+      "type": "Dataset"
+    },
+    {
+      "name": "GPT-5-mini",
+      "type": "Model"
+    },
+    {
+      "name": "ContextRAG",
+      "type": "Model"
+    },
+    {
+      "name": "VectorRAG",
+      "type": "Model"
+    },
+    {
+      "name": "PathRAG",
+      "type": "Model"
+    },
+    {
+      "name": "Hazard and Operability Studies (HAZOP)",
+      "type": "Task"
+    },
+    {
+      "name": "multi-agent analysis",
+      "type": "Task"
+    },
+    {
+      "name": "commercial LLM APIs",
+      "type": "Concept"
+    },
+    {
+      "name": "raw image inputs",
+      "type": "Concept"
+    },
+    {
+      "name": "token costs",
+      "type": "Concept"
+    },
+    {
+      "name": "91% accuracy",
+      "type": "Concept"
+    },
+    {
+      "name": "only $0.004 per task",
+      "type": "Concept"
+    },
+    {
+      "name": "intuitive natural-language interaction",
+      "type": "Concept"
+    },
+    {
+      "name": "AI-assisted process engineering tasks",
+      "type": "Concept"
+    },
+    {
+      "name": "intuitive natural-language interaction with complex engineering diagrams",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "GraphRAG for engineering diagrams"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "uses",
+      "object": "GraphRAG"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "uses",
+      "object": "DEXPI"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "evaluated on",
+      "object": "commercial LLM APIs"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "outperforms",
+      "object": "raw image inputs"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "outperforms",
+      "object": "token costs"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "achieves",
+      "object": "91% accuracy"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "achieves",
+      "object": "only $0.004 per task"
+    },
+    {
+      "subject": "ChatP&ID",
+      "relation": "enables",
+      "object": "intuitive natural-language interaction"
+    },
+    {
+      "subject": "ChatP&ID",
+      "relation": "lays the groundwork for",
+      "object": "AI-assisted process engineering tasks"
+    },
+    {
+      "subject": "ChatP&ID",
+      "relation": "enables",
+      "object": "intuitive natural-language interaction with complex engineering diagrams"
+    }
+  ],
+  "paper_id": "2603.22528",
+  "model": "qwen2.5:1.5b"
+}

@@ -1,0 +1,27 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "PI",
+      "type": "Concept"
+    },
+    {
+      "name": "GPT-4o mini",
+      "type": "Model"
+    },
+    {
+      "name": "Neo4j",
+      "type": "Model"
+    },
+    {
+      "name": "knowledge graph",
+      "type": "Concept"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2609.29083",
+  "model": "qwen2.5:1.5b"
+}

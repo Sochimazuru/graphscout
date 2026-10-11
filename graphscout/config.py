@@ -15,10 +15,13 @@ class Config:
     ollama_url: str = field(default_factory=lambda: os.getenv("OLLAMA_URL", "http://localhost:11434"))
     # A small model, so it runs on a laptop CPU. Swap for a bigger one if you have a GPU.
     model: str = field(default_factory=lambda: os.getenv("GRAPHSCOUT_MODEL", "qwen2.5:3b"))
-    llm_timeout: int = field(default_factory=lambda: int(os.getenv("GRAPHSCOUT_TIMEOUT", "600")))
+    llm_timeout: int = field(default_factory=lambda: int(os.getenv("GRAPHSCOUT_TIMEOUT", "300")))
+    # Hard cap on output length. Small models in JSON mode can otherwise keep generating
+    # whitespace until the timeout, which looks like a hang.
+    max_output_tokens: int = field(default_factory=lambda: int(os.getenv("GRAPHSCOUT_MAX_TOKENS", "1024")))
     arxiv_query: str = field(default_factory=lambda: os.getenv("GRAPHSCOUT_QUERY", DEFAULT_QUERY))
     n_papers: int = field(default_factory=lambda: int(os.getenv("GRAPHSCOUT_N_PAPERS", "20")))
-    max_triples_per_paper: int = 15
+    max_triples_per_paper: int = 12
     max_hops: int = 3
     beam_width: int = 4
     data_dir: Path = field(default_factory=lambda: Path(os.getenv("GRAPHSCOUT_DATA", "data")))

@@ -1,0 +1,51 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Retrieval-Augmented Generation",
+      "type": "Method"
+    },
+    {
+      "name": "Large Language Models",
+      "type": "Model"
+    },
+    {
+      "name": "Knowledge Graph",
+      "type": "Concept"
+    },
+    {
+      "name": "Retrieval-Augmented Generation Benchmark",
+      "type": "Dataset"
+    },
+    {
+      "name": "Factual hallucinations",
+      "type": "Concept"
+    },
+    {
+      "name": "LLMs",
+      "type": "Model"
+    },
+    {
+      "name": "HotpotQA",
+      "type": "Dataset"
+    },
+    {
+      "name": "Metric",
+      "type": "Metric"
+    },
+    {
+      "name": "exactly match",
+      "type": "Metric"
+    },
+    {
+      "name": "exact match",
+      "type": "Metric"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2603.05698",
+  "model": "qwen2.5:1.5b"
+}

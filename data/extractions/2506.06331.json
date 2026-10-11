@@ -1,0 +1,68 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "knowledge graph",
+      "type": "Dataset"
+    },
+    {
+      "name": "answer quality",
+      "type": "Metric"
+    },
+    {
+      "name": "GraphRAG methods",
+      "type": "Method"
+    },
+    {
+      "name": "LLM-based answer assessment",
+      "type": "Metric"
+    },
+    {
+      "name": "unbiased evaluation framework",
+      "type": "Concept"
+    },
+    {
+      "name": "graph-text-grounded question generation",
+      "type": "Concept"
+    },
+    {
+      "name": "3 representative GraphRAG methods",
+      "type": "Concept"
+    },
+    {
+      "name": "performance gains are much more moderate than reported previously",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "unbiased evaluation framework"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "uses",
+      "object": "graph-text-grounded question generation"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "evaluates on",
+      "object": "3 representative GraphRAG methods"
+    },
+    {
+      "subject": "THIS_PAPER",
+      "relation": "finds",
+      "object": "performance gains are much more moderate than reported previously"
+    }
+  ],
+  "paper_id": "2506.06331",
+  "model": "qwen2.5:1.5b"
+}

@@ -1,0 +1,162 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "LLM",
+      "type": "Model"
+    },
+    {
+      "name": "plasma literature",
+      "type": "Dataset"
+    },
+    {
+      "name": "plasma simulations",
+      "type": "Task"
+    },
+    {
+      "name": "parameter selection",
+      "type": "Concept"
+    },
+    {
+      "name": "Gyrokinetic plasma simulations",
+      "type": "Task"
+    },
+    {
+      "name": "parameter range identification",
+      "type": "Concept"
+    },
+    {
+      "name": "domain-specific knowledge graph",
+      "type": "Concept"
+    },
+    {
+      "name": "structured retrieval",
+      "type": "Concept"
+    },
+    {
+      "name": "comprehensiveness",
+      "type": "Metric"
+    },
+    {
+      "name": "diversity",
+      "type": "Metric"
+    },
+    {
+      "name": "grounding",
+      "type": "Metric"
+    },
+    {
+      "name": "hallucination",
+      "type": "Metric"
+    },
+    {
+      "name": "empowerment",
+      "type": "Metric"
+    },
+    {
+      "name": "Plasma GraphRAG",
+      "type": "Model"
+    },
+    {
+      "name": "vanilla RAG",
+      "type": "Model"
+    },
+    {
+      "name": "simulation reliability",
+      "type": "Metric"
+    },
+    {
+      "name": "accelerating scientific discovery",
+      "type": "Concept"
+    },
+    {
+      "name": "Plasma GraphRAG framework",
+      "type": "Concept"
+    },
+    {
+      "name": "Graph Retrieval-Augmented Generation (GraphRAG)",
+      "type": "Concept"
+    },
+    {
+      "name": "LLMs",
+      "type": "Concept"
+    },
+    {
+      "name": "structured retrieval over graph-anchored entities and relations",
+      "type": "Concept"
+    },
+    {
+      "name": "over $10\text{%}$ in overall quality",
+      "type": "Concept"
+    },
+    {
+      "name": "reduces hallucination rates by up to $25\text{%}$",
+      "type": "Concept"
+    },
+    {
+      "name": "outperforms vanilla RAG by over $10\text{%}$ in overall quality",
+      "type": "Concept"
+    },
+    {
+      "name": "accelerates scientific discovery across complex, data-rich domains",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "proposes",
+      "object": "Plasma GraphRAG framework"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "integrates",
+      "object": "Graph Retrieval-Augmented Generation (GraphRAG)"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "enables",
+      "object": "LLMs"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "constructs",
+      "object": "domain-specific knowledge graph"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "enables",
+      "object": "structured retrieval over graph-anchored entities and relations"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "demonstrates",
+      "object": "over $10\text{%}$ in overall quality"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "demonstrates",
+      "object": "reduces hallucination rates by up to $25\text{%}$"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "demonstrates",
+      "object": "outperforms vanilla RAG by over $10\text{%}$ in overall quality"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "demonstrates",
+      "object": "reduces hallucination rates by up to $25\text{%}$"
+    },
+    {
+      "subject": "Plasma GraphRAG",
+      "relation": "demonstrates",
+      "object": "accelerates scientific discovery across complex, data-rich domains"
+    }
+  ],
+  "paper_id": "2604.06279",
+  "model": "qwen2.5:1.5b"
+}

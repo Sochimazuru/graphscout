@@ -1,0 +1,31 @@
+{
+  "papers": 20,
+  "papers_with_extractions": 20,
+  "entity_mentions": 252,
+  "entities_after_resolution": 193,
+  "entity_types": {
+    "Method": 25,
+    "Concept": 89,
+    "Task": 19,
+    "Model": 26,
+    "Dataset": 18,
+    "Metric": 16
+  },
+  "relation_facts": 99,
+  "relations_by_property": {
+    "proposes": 22,
+    "evaluatedOn": 20,
+    "uses": 11,
+    "reports": 10,
+    "improves": 10,
+    "addresses": 9,
+    "relatedTo": 7,
+    "comparedWith": 6,
+    "outperforms": 3,
+    "partOf": 1
+  },
+  "relations_mapped_to_schema": 92,
+  "triples_skipped": 2,
+  "duplicate_triples_removed": 13,
+  "rdf_triples_total": 1606
+}

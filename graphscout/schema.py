@@ -37,14 +37,17 @@ SCHEMA_ALIGNMENT = {
 
 # Canonical properties, checked in order. The first pattern that matches wins.
 RELATION_RULES: list[tuple[str, str]] = [
-    ("outperforms", r"outperform|surpass|beat|better than|improv(e|es|ed) (up)?on|exceed"),
-    ("extends", r"extend|buil(d|ds|t) (up)?on|based upon|generaliz|enhance|augment|variant of|improves"),
-    ("proposes", r"propos|introduc|present|develop|design|contribut"),
-    ("evaluatedOn", r"evaluat|test(ed)? on|benchmark|experiment|validat|assess"),
-    ("measuredBy", r"measur|metric|scor|report"),
-    ("addresses", r"address|tackl|solv|target|aim|focus|for |applied to|mitigat|reduc"),
+    ("outperforms", r"outperform|surpass|beat|better than|gains? over|exceed"),
+    ("comparedWith", r"compar|versus|\bvs\b|against|benchmark(s|ed)? against"),
+    ("improves", r"improv|enhanc|boost|increas|achiev|accelerat|speed"),
+    ("extends", r"extend|buil(d|ds|t) (up)?on|based upon|generaliz|variant of|augment"),
+    ("proposes", r"propos|introduc|present|develop|design|contribut|construct|build|creat|establish"),
+    ("evaluatedOn", r"evaluat|test(ed)? on|benchmark|experiment|validat|assess|implemented on"),
+    ("measuredBy", r"measur|metric|scor"),
+    ("addresses", r"address|tackl|solv|target|aim|focus|for |applied to|mitigat|reduc|enabl|support|standardiz"),
     ("partOf", r"part of|component|consist|compris|contain|includ|compos"),
-    ("uses", r"use|employ|leverag|utiliz|rel(y|ies) on|based on|adopt|integrat|incorporat|combin|apply|via"),
+    ("uses", r"use|employ|leverag|utiliz|rel(y|ies) on|based on|adopt|integrat|incorporat|combin|apply|via|deploy|run on"),
+    ("reports", r"demonstrat|show|find|highlight|explain|analy|suggest|reveal|report|observ|conclud|argu"),
 ]
 FALLBACK_RELATION = "relatedTo"
 
@@ -55,6 +58,9 @@ RELATION_DESCRIPTIONS = {
     "evaluatedOn": "method or paper is evaluated on a dataset",
     "measuredBy": "evaluation reports a metric",
     "outperforms": "method beats another method",
+    "comparedWith": "method or paper is compared with another method",
+    "improves": "method improves a task, metric or quality",
+    "reports": "paper or method reports a finding (object is a short claim)",
     "extends": "method builds on or improves another",
     "partOf": "component belongs to a larger system",
     "relatedTo": "open relation with no schema match (original wording kept)",

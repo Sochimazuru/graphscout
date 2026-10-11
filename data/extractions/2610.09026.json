@@ -1,0 +1,158 @@
+{
+  "entities": [
+    {
+      "name": "BEACON-SP",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "clinician-facing decision support",
+      "type": "Task"
+    },
+    {
+      "name": "behavioral health settings",
+      "type": "Task"
+    },
+    {
+      "name": "suicide prevention",
+      "type": "Task"
+    },
+    {
+      "name": "patient knowledge graphs",
+      "type": "Model"
+    },
+    {
+      "name": "ontology-guided retrieval",
+      "type": "Method"
+    },
+    {
+      "name": "Three-Step Theory",
+      "type": "Concept"
+    },
+    {
+      "name": "Integrated Motivational-Volitional Model",
+      "type": "Concept"
+    },
+    {
+      "name": "Suicide Social Determinants of Health Ontology",
+      "type": "Concept"
+    },
+    {
+      "name": "ontology-grounded patient knowledge graphs",
+      "type": "Model"
+    },
+    {
+      "name": "ontology-guided GraphRAG framework",
+      "type": "Method"
+    },
+    {
+      "name": "clinician-facing question answering",
+      "type": "Task"
+    },
+    {
+      "name": "vector-based retrieval-augmented generation (RAG) baseline",
+      "type": "Model"
+    },
+    {
+      "name": "1,500-query benchmark",
+      "type": "Dataset"
+    },
+    {
+      "name": "15 clinical categories",
+      "type": "Dataset"
+    },
+    {
+      "name": "100 patients",
+      "type": "Dataset"
+    },
+    {
+      "name": "corrected comparative evaluation protocol",
+      "type": "Metric"
+    },
+    {
+      "name": "76.4%",
+      "type": "Metric"
+    },
+    {
+      "name": "ontology-guided GraphRAG",
+      "type": "Concept"
+    },
+    {
+      "name": "ontology-grounded GraphRAG framework",
+      "type": "Concept"
+    },
+    {
+      "name": "patient knowledge graphs with ontology-guided retrieval",
+      "type": "Concept"
+    },
+    {
+      "name": "multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships",
+      "type": "Concept"
+    },
+    {
+      "name": "completeness, clinical relevance, and evidence grounding",
+      "type": "Concept"
+    },
+    {
+      "name": "factual accuracy",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "BEACON-SP",
+      "relation": "proposes",
+      "object": "ontology-grounded GraphRAG framework"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "combines",
+      "object": "patient knowledge graphs with ontology-guided retrieval"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "supports",
+      "object": "multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "constructed",
+      "object": "ontology-grounded patient knowledge graphs"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "evaluated",
+      "object": "clinician-facing question answering"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "improves",
+      "object": "completeness, clinical relevance, and evidence grounding"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "compared with",
+      "object": "vector-based retrieval-augmented generation (RAG) baseline"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "improves",
+      "object": "factual accuracy"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "compared with",
+      "object": "GraphRAG"
+    },
+    {
+      "subject": "BEACON-SP",
+      "relation": "preferred",
+      "object": "clinician-facing question answering"
+    }
+  ],
+  "paper_id": "2610.09026",
+  "model": "qwen2.5:1.5b"
+}

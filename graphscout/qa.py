@@ -10,6 +10,7 @@ exactly how an answer was reached.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 
 from .config import Config
@@ -29,6 +30,35 @@ ANSWERER_SYSTEM = (
 )
 
 
+# Generic words in a question ("which datasets...") point at a class, not one node.
+TYPE_WORDS = {
+    "dataset": "Dataset", "datasets": "Dataset", "benchmark": "Dataset", "benchmarks": "Dataset",
+    "method": "Method", "methods": "Method", "approach": "Method", "approaches": "Method",
+    "task": "Task", "tasks": "Task", "metric": "Metric", "metrics": "Metric",
+    "model": "Model", "models": "Model", "llm": "Model", "llms": "Model",
+}
+MAX_MENTION_EDGES = 5
+MAX_ROUTED_EDGES = 6
+
+# Words in the question that name a relation. Edges with that property, touching a start
+# node, are added to the evidence directly, so a small model cannot overlook them.
+RELATION_CUES = {
+    "improves": r"improv|gain|boost|increas",
+    "comparedWith": r"compar|versus|\bvs\b",
+    "outperforms": r"outperform|beat|better than|best",
+    "evaluatedOn": r"evaluat|tested|benchmark|dataset",
+    "uses": r"\buses?\b|\bused\b|rel(y|ies)|based on|built",
+    "proposes": r"propos|introduc",
+    "addresses": r"address|solve|tackle|enable",
+    "reports": r"\bfind|show|report|conclud",
+}
+
+
+def routed_properties(question: str) -> list[str]:
+    q = question.lower()
+    return [p for p, pattern in RELATION_CUES.items() if re.search(pattern, q)]
+
+
 @dataclass
 class Trace:
     question: str
@@ -40,6 +70,7 @@ class Trace:
     answer: str = ""
     cited: list = field(default_factory=list)
     confidence: str = ""
+    uncited_sentences: int = 0
 
 
 class Planner:
@@ -57,10 +88,19 @@ Return JSON: {{"entities": ["..."], "plan": "..."}}"""
         trace.plan = str(out.get("plan", ""))
         trace.mentions = mentions
         seeds: list[str] = []
+        type_words = [TYPE_WORDS[m.strip().lower()] for m in mentions if m.strip().lower() in TYPE_WORDS]
         for m in mentions:
+            if m.strip().lower() in TYPE_WORDS:
+                continue
             for uri in self.store.find(m):
                 if uri not in seeds:
                     seeds.append(uri)
+        # "which datasets..." with nothing specific named: start from the main nodes of that type
+        if not seeds:
+            for etype in type_words:
+                for uri in self.store.top_of_type(etype):
+                    if uri not in seeds:
+                        seeds.append(uri)
         if not seeds:  # fall back to matching words of the question itself
             words = question.replace("?", " ").split()
             for n in (3, 2, 1):
@@ -82,15 +122,33 @@ class Explorer:
     def run(self, question: str, seeds: list[str], trace: Trace) -> list[Edge]:
         evidence: list[Edge] = []
         frontier, visited = list(seeds), set(seeds)
+        props = routed_properties(question)
+        if props:
+            routed = []
+            for node in seeds:
+                for e in self.store.neighbours(node):
+                    if e.pred in props and e not in routed:
+                        routed.append(e)
+            routed = routed[:MAX_ROUTED_EDGES]
+            evidence.extend(routed)
+            trace.hops.append({
+                "hop": 0,
+                "frontier": [self.store.label(n) for n in seeds],
+                "candidates": len(routed),
+                "chosen": [e.text() for e in routed],
+                "reason": f"routed by relation words in the question: {', '.join(props)}",
+            })
         for hop in range(1, self.cfg.max_hops + 1):
             candidates: list[Edge] = []
             for node in frontier:
                 for e in self.store.neighbours(node):
                     if e not in evidence and e not in candidates:
                         candidates.append(e)
-            # facts before generic "paper mentions X" links, and keep the prompt small
-            candidates.sort(key=lambda e: e.pred == "mentions")
-            candidates = candidates[:30]
+            # Real facts first. "Paper mentions X" links only help to reach a paper's own
+            # facts, so keep just a few of them, and keep the prompt small.
+            facts = [e for e in candidates if e.pred != "mentions"]
+            mentions = [e for e in candidates if e.pred == "mentions"][:MAX_MENTION_EDGES]
+            candidates = (facts + mentions)[:30]
             if not candidates:
                 break
             listing = "\n".join(f"[{i}] {e.text()}" for i, e in enumerate(candidates))
@@ -149,23 +207,40 @@ class Answerer:
         ]
         if not evidence:
             trace.answer = "The graph has no evidence for this question."
-            trace.confidence = "low"
+            trace.confidence = "no evidence found"
             return
         listing = "\n".join(
-            f"[E{i}] {e.text()}  (source: {', '.join(e.sources) or 'n/a'})"
-            for i, e in enumerate(evidence, 1)
+            f"[E{i}] {e.text()}  (from paper: {self._titles(e)})" for i, e in enumerate(evidence, 1)
         )
         prompt = f"""Question: {question}
 
 Evidence:
 {listing}
 
-Write a short answer (2 to 5 sentences) using only this evidence, citing facts like [E1].
-Return JSON: {{"answer": "...", "cited": ["E1"], "confidence": "high|medium|low"}}"""
+Write a short answer (2 to 5 sentences) using only this evidence.
+End every sentence with the evidence it uses, like [E1] or [E1, E3].
+The "from paper" part says where a fact came from. It is not a dataset or a method.
+If the evidence does not answer the question, say what it does show and what is missing.
+Return JSON: {{"answer": "...", "cited": ["E1"]}}"""
         out = self.llm.json(ANSWERER_SYSTEM, prompt)
         trace.answer = str(out.get("answer", "")).strip() or "No answer produced."
-        trace.cited = [str(c) for c in out.get("cited", []) or []]
-        trace.confidence = str(out.get("confidence", ""))
+        valid = {f"E{i}" for i in range(1, len(evidence) + 1)}
+        cited = {str(c).strip("[] ") for c in out.get("cited", []) or []}
+        cited |= set(re.findall(r"E\d+", trace.answer))
+        trace.cited = sorted(cited & valid, key=lambda x: int(x[1:]))
+        direct = [c for c in trace.cited if evidence[int(c[1:]) - 1].pred != "mentions"]
+        # Grounding is measured from what the answer cites, not what the model claims.
+        sentences = [x for x in re.split(r"(?<=[.!?])\s+", trace.answer) if x.strip()]
+        uncited = [x for x in sentences if not re.search(r"E\d+", x)]
+        trace.uncited_sentences = len(uncited)
+        trace.confidence = (
+            f"cites {len(trace.cited)} of {len(evidence)} evidence facts "
+            f"({len(direct)} direct facts, not just 'paper mentions X'); "
+            f"{len(uncited)} of {len(sentences)} sentences have no citation"
+        )
+
+    def _titles(self, e: Edge) -> str:
+        return "; ".join(self.store.paper_title(s)[:80] for s in e.sources) or "n/a"
 
 
 def answer_question(llm, store: GraphStore, cfg: Config, question: str) -> Trace:
@@ -177,13 +252,16 @@ def answer_question(llm, store: GraphStore, cfg: Config, question: str) -> Trace
 
 
 def trace_to_markdown(trace: Trace, store: GraphStore) -> str:
-    lines = [f"### Q: {trace.question}", "", f"**Answer** ({trace.confidence or 'n/a'} confidence): {trace.answer}", ""]
+    lines = [f"### Q: {trace.question}", "", f"**Answer:** {trace.answer}", "", f"- Grounding: {trace.confidence or 'n/a'}"]
     lines.append(f"- Plan: {trace.plan or 'n/a'}")
     lines.append(f"- Mentions found in question: {', '.join(trace.mentions) or 'none'}")
     lines.append(f"- Start nodes in graph: {', '.join(trace.seeds) or 'none'}")
     for h in trace.hops:
         chosen = "; ".join(h["chosen"]) or "nothing"
-        lines.append(f"- Hop {h['hop']}: from {', '.join(h['frontier'])} ({h['candidates']} edges seen), followed: {chosen}")
+        if h["hop"] == 0:
+            lines.append(f"- Routing ({h['reason']}): {chosen}")
+        else:
+            lines.append(f"- Hop {h['hop']}: from {', '.join(h['frontier'])} ({h['candidates']} edges seen), followed: {chosen}")
     if trace.evidence:
         lines += ["", "| Evidence | Fact | Source papers |", "|---|---|---|"]
         for ev in trace.evidence:

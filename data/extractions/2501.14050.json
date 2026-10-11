@@ -1,0 +1,23 @@
+{
+  "entities": [
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "RAG",
+      "type": "Method"
+    },
+    {
+      "name": "Poisoning Attack",
+      "type": "Method"
+    },
+    {
+      "name": "Poisoning Text",
+      "type": "Object"
+    }
+  ],
+  "triples": [],
+  "paper_id": "2501.14050",
+  "model": "qwen2.5:1.5b"
+}

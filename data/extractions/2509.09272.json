@@ -1,0 +1,108 @@
+{
+  "entities": [
+    {
+      "name": "spaCy",
+      "type": "Method"
+    },
+    {
+      "name": "Stanford CoreNLP-OpenIE",
+      "type": "Method"
+    },
+    {
+      "name": "GraphRAG",
+      "type": "Method"
+    },
+    {
+      "name": "Knowledge Graph",
+      "type": "Concept"
+    },
+    {
+      "name": "Retrieval Augmented Generation (RAG)",
+      "type": "Method"
+    },
+    {
+      "name": "Large Language Model (LLM)",
+      "type": "Concept"
+    },
+    {
+      "name": "HotpotQA",
+      "type": "Dataset"
+    },
+    {
+      "name": "Multi-hop question answering",
+      "type": "Task"
+    },
+    {
+      "name": "three different methodologies for constructing knowledge graph triplets and integrating them with Large Language Models (LLMs) for question answering",
+      "type": "Concept"
+    },
+    {
+      "name": "knowledge graph-based question answering",
+      "type": "Concept"
+    }
+  ],
+  "triples": [
+    {
+      "subject": "THIS_PAPER",
+      "relation": "proposes",
+      "object": "three different methodologies for constructing knowledge graph triplets and integrating them with Large Language Models (LLMs) for question answering"
+    },
+    {
+      "subject": "spaCy",
+      "relation": "proposes",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "Stanford CoreNLP-OpenIE",
+      "relation": "proposes",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "proposes",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "spaCy",
+      "relation": "evaluated on",
+      "object": "HotpotQA"
+    },
+    {
+      "subject": "Stanford CoreNLP-OpenIE",
+      "relation": "evaluated on",
+      "object": "HotpotQA"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "evaluated on",
+      "object": "HotpotQA"
+    },
+    {
+      "subject": "spaCy",
+      "relation": "evaluated on",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "Stanford CoreNLP-OpenIE",
+      "relation": "evaluated on",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "GraphRAG",
+      "relation": "evaluated on",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "spaCy",
+      "relation": "evaluated on",
+      "object": "knowledge graph-based question answering"
+    },
+    {
+      "subject": "Stanford CoreNLP-OpenIE",
+      "relation": "evaluated on",
+      "object": "knowledge graph-based question answering"
+    }
+  ],
+  "paper_id": "2509.09272",
+  "model": "qwen2.5:1.5b"
+}

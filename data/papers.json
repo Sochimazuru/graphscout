@@ -1,0 +1,295 @@
+[
+  {
+    "id": "2610.09026",
+    "title": "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment",
+    "abstract": "We present BEACON-SP, an ontology-grounded Graph Retrieval-Augmented Generation (GraphRAG) framework for clinician-facing decision support in behavioral health settings such as suicide prevention, where effective assessment requires integrating heterogeneous clinical, behavioral, social, and temporal evidence. BEACON-SP combines patient knowledge graphs with ontology-guided retrieval to support multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships. The framework is enabled by a comprehensive suicide prevention ontology that integrates the Three-Step Theory, the Integrated Motivational-Volitional Model, and the Suicide Social Determinants of Health Ontology into a unified representation of patient risk factors. We construct ontology-grounded patient knowledge graphs and evaluate BEACON-SP for clinician-facing question answering. Compared with a vector-based retrieval-augmented generation (RAG) baseline on a 1,500-query benchmark spanning 15 clinical categories and 100 patients, BEACON-SP improves completeness, clinical relevance, and evidence grounding under a corrected comparative evaluation protocol, with a small gain on factual accuracy. In paired criterion-level comparisons, GraphRAG is preferred in 76.4% of cases. These results demonstrate the potential of ontology-guided GraphRAG to provide structured, contextualized patient evidence for clinical decision support.",
+    "published": "2026-10-06",
+    "authors": [
+      "Kemal Davaslioglu",
+      "Nathan Conger",
+      "Sastry Kompella",
+      "Yalin E. Sagduyu",
+      "Nathaniel D. Bastian"
+    ],
+    "url": "https://arxiv.org/abs/2610.09026"
+  },
+  {
+    "id": "2502.11371",
+    "title": "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights",
+    "abstract": "Retrieval-Augmented Generation (RAG) improves large language models (LLMs) by retrieving relevant information from external sources and has been widely adopted for text-based tasks. For structured data, such as knowledge graphs, Graph Retrieval-Augmented Generation (GraphRAG) retrieves and aggregates information along graph structures. More recently, GraphRAG has been extended to general text settings by organizing unstructured text into graph representations, showing promise for reasoning and grounding. Despite these advances, existing GraphRAG systems for text data are often tailored to specific tasks, datasets, and system designs, resulting in heterogeneous evaluation protocols. Consequently, a systematic understanding of the relative strengths, limitations, and trade-offs between RAG and GraphRAG on widely used text benchmarks remains limited. In this paper, we present a comprehensive benchmark study comparing RAG and GraphRAG on established text-based tasks, including question answering and query-based summarization. We introduce a unified evaluation protocol that standardizes data preprocessing, retrieval configurations, and generation settings, enabling fair and reproducible comparisons. Our results highlight the distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives. Building on these findings, we explore selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements. We further analyze failure modes, efficiency trade-offs, and evaluation biases, and highlight key considerations for designing and evaluating retrieval-augmented generation systems.",
+    "published": "2025-02-17",
+    "authors": [
+      "Haoyu Han",
+      "Li Ma",
+      "Yu Wang",
+      "Harry Shomer",
+      "Yongjia Lei",
+      "Zhisheng Qi",
+      "Kai Guo",
+      "Zhigang Hua",
+      "Bo Long",
+      "Hui Liu",
+      "Charu C. Aggarwal",
+      "Jiliang Tang"
+    ],
+    "url": "https://arxiv.org/abs/2502.11371"
+  },
+  {
+    "id": "2601.05254",
+    "title": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation",
+    "abstract": "Retrieval-Augmented Generation enhances language models by retrieving external knowledge to support informed and grounded responses. However, traditional RAG methods rely on fragment-level retrieval, limiting their ability to address query-focused summarization queries. GraphRAG introduces a graph-based paradigm for global knowledge reasoning, yet suffers from inefficiencies in information extraction, costly resource consumption, and poor adaptability to incremental updates. To overcome these limitations, we propose TagRAG, a tag-guided hierarchical knowledge graph RAG framework designed for efficient global reasoning and scalable graph maintenance. TagRAG introduces two key components: (1) Tag Knowledge Graph Construction, which extracts object tags and their relationships from documents and organizes them into hierarchical domain tag chains for structured knowledge representation, and (2) Tag-Guided Retrieval-Augmented Generation, which retrieves domain-centric tag chains to localize and synthesize relevant knowledge during inference. This design significantly adapts to smaller language models, improves retrieval granularity, and supports efficient knowledge increment. Extensive experiments on UltraDomain datasets spanning Agriculture, Computer Science, Law, and cross-domain settings demonstrate that TagRAG achieves an average winning rate of 78.36% against baselines while maintaining about 14.6x construction and 1.9x retrieval efficiency compared with GraphRAG.",
+    "published": "2025-10-18",
+    "authors": [
+      "Wenbiao Tao",
+      "Xinyuan Li",
+      "Yunshi Lan",
+      "Weining Qian"
+    ],
+    "url": "https://arxiv.org/abs/2601.05254"
+  },
+  {
+    "id": "2604.06279",
+    "title": "Plasma GraphRAG: Physics-Grounded Parameter Selection for Gyrokinetic Simulations",
+    "abstract": "Accurate parameter selection is fundamental to gyrokinetic plasma simulations, yet current practices rely heavily on manual literature reviews, leading to inefficiencies and inconsistencies. We introduce Plasma GraphRAG, a novel framework that integrates Graph Retrieval-Augmented Generation (GraphRAG) with large language models (LLMs) for automated, physics-grounded parameter range identification. By constructing a domain-specific knowledge graph from curated plasma literature and enabling structured retrieval over graph-anchored entities and relations, Plasma GraphRAG enables LLMs to generate accurate, context-aware recommendations. Extensive evaluations across five metrics, comprehensiveness, diversity, grounding, hallucination, and empowerment, demonstrate that Plasma GraphRAG outperforms vanilla RAG by over $10\\%$ in overall quality and reduces hallucination rates by up to $25\\%$. {Beyond enhancing simulation reliability, Plasma GraphRAG offers a methodology for accelerating scientific discovery across complex, data-rich domains.",
+    "published": "2026-04-07",
+    "authors": [
+      "Ruichen Zhang",
+      "Feda AlMuhisen",
+      "Chenguang Wan",
+      "Zhisong Qu",
+      "Kunpeng Li",
+      "Youngwoo Cho",
+      "Kyungtak Lim",
+      "Virginie Grandgirard",
+      "Xavier Garbet"
+    ],
+    "url": "https://arxiv.org/abs/2604.06279"
+  },
+  {
+    "id": "2503.13804",
+    "title": "Empowering GraphRAG with Knowledge Filtering and Integration",
+    "abstract": "In recent years, large language models (LLMs) have revolutionized the field of natural language processing. However, they often suffer from knowledge gaps and hallucinations. Graph retrieval-augmented generation (GraphRAG) enhances LLM reasoning by integrating structured knowledge from external graphs. However, we identify two key challenges that plague GraphRAG:(1) Retrieving noisy and irrelevant information can degrade performance and (2)Excessive reliance on external knowledge suppresses the model's intrinsic reasoning. To address these issues, we propose GraphRAG-FI (Filtering and Integration), consisting of GraphRAG-Filtering and GraphRAG-Integration. GraphRAG-Filtering employs a two-stage filtering mechanism to refine retrieved information. GraphRAG-Integration employs a logits-based selection strategy to balance external knowledge from GraphRAG with the LLM's intrinsic reasoning,reducing over-reliance on retrievals. Experiments on knowledge graph QA tasks demonstrate that GraphRAG-FI significantly improves reasoning performance across multiple backbone models, establishing a more reliable and effective GraphRAG framework.",
+    "published": "2025-03-18",
+    "authors": [
+      "Kai Guo",
+      "Harry Shomer",
+      "Shenglai Zeng",
+      "Haoyu Han",
+      "Yu Wang",
+      "Jiliang Tang"
+    ],
+    "url": "https://arxiv.org/abs/2503.13804"
+  },
+  {
+    "id": "2603.05698",
+    "title": "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis",
+    "abstract": "Retrieval-Augmented Generation (RAG) was introduced to enhance the capabilities of Large Language Models (LLMs) beyond their encoded prior knowledge. This is achieved by providing LLMs with an external source of knowledge, which helps reduce factual hallucinations and enables access to new information not available during pretraining. However, inconsistent retrieved information can negatively affect LLM responses. The Retrieval-Augmented Generation Benchmark (RGB) was introduced to evaluate the robustness of RAG systems under such conditions. In this work, we use the RGB corpus to evaluate LLMs in four scenarios: noise robustness, information integration, negative rejection, and counterfactual robustness. We perform a comparative analysis between the RGB RAG baseline and GraphRAG, a knowledge graph based retrieval system. We test three GraphRAG customizations to improve robustness. Results show improvements over the RGB baseline and provide insights for designing more reliable RAG systems for real world scenarios.",
+    "published": "2026-03-05",
+    "authors": [
+      "Hazem Amamou",
+      "Stéphane Gagnon",
+      "Alan Davoust",
+      "Anderson R. Avila"
+    ],
+    "url": "https://arxiv.org/abs/2603.05698"
+  },
+  {
+    "id": "2501.14050",
+    "title": "GraphRAG under Fire",
+    "abstract": "GraphRAG advances retrieval-augmented generation (RAG) by structuring external knowledge as multi-scale knowledge graphs, enabling language models to integrate both broad context and granular details in their generation. While GraphRAG has demonstrated success across domains, its security implications remain largely unexplored. To bridge this gap, this work examines GraphRAG's vulnerability to poisoning attacks, uncovering an intriguing security paradox: existing RAG poisoning attacks are less effective under GraphRAG than conventional RAG, due to GraphRAG's graph-based indexing and retrieval; yet, the same features also create new attack surfaces. We present GragPoison, a novel attack that exploits shared relations in the underlying knowledge graph to craft poisoning text capable of compromising multiple queries simultaneously. GragPoison employs three key strategies: (i) relation injection to introduce false knowledge, (ii) relation enhancement to amplify poisoning influence, and (iii) narrative generation to embed malicious content within coherent text. Empirical evaluation across diverse datasets and models shows that GragPoison substantially outperforms existing attacks in terms of effectiveness (up to 98% success rate) and scalability (using less than 68% poisoning text) on multiple variations of GraphRAG. We also explore potential defensive measures and their limitations, identifying promising directions for future research.",
+    "published": "2025-01-23",
+    "authors": [
+      "Jiacheng Liang",
+      "Yuhui Wang",
+      "Changjiang Li",
+      "Rongyi Zhu",
+      "Tanqiu Jiang",
+      "Neil Gong",
+      "Ting Wang"
+    ],
+    "url": "https://arxiv.org/abs/2501.14050"
+  },
+  {
+    "id": "2605.20815",
+    "title": "GraphRAG on Consumer Hardware: Benchmarking Local LLMs for Healthcare EHR Schema Retrieval",
+    "abstract": "Graph-based Retrieval Augmented Generation (GraphRAG) extends retrieval-augmented generation to support structured reasoning over complex corpora, but its reliability under resource-constrained, privacy-sensitive deployments remains unclear. In healthcare, where Electronic Health Record (EHR) data is complex and strictly regulated, reliance on cloud-based large language models (LLMs) introduces challenges in cost, latency, and compliance. In this work, we present a systematic evaluation of GraphRAG for EHR schema retrieval using locally deployed open-source LLMs. We implement the Microsoft GraphRAG pipeline on real-world EHR schema documentation and benchmark four models, including Llama 3.1 (8B), Mistral (7B), Qwen 2.5 (7B), and Phi-4-mini (3.8B), each deployed via Ollama on a single consumer GPU (8 GB VRAM). We evaluate indexing efficiency, knowledge graph construction, query latency, answer quality, and hallucination under both global and local retrieval modes. Our results reveal substantial differences: Llama 3.1 produces the richest knowledge graph (1,172 entities), Qwen 2.5 achieves the best answer quality (3.3/5), Phi-4-mini fails to complete the pipeline due to structured-output errors, and Mistral exhibits degenerate repetition behavior. We further show that GraphRAG exhibits a practical capacity threshold, where models below approximately 7B parameters fail to reliably produce valid structured outputs and cannot complete the pipeline. In addition, indexing and answer quality are decoupled across models, and local retrieval consistently outperforms global summarization in both latency and factual grounding, with reduced hallucination. These findings demonstrate that GraphRAG is feasible on consumer hardware while highlighting the importance of model selection and retrieval design for robust deployment in regulated settings.",
+    "published": "2026-05-20",
+    "authors": [
+      "Peter Fernandes",
+      "Ria Kanjilal"
+    ],
+    "url": "https://arxiv.org/abs/2605.20815"
+  },
+  {
+    "id": "2506.06331",
+    "title": "How Significant Are the Real Performance Gains? An Unbiased Evaluation Framework for GraphRAG",
+    "abstract": "By retrieving contexts from knowledge graphs, graph-based retrieval-augmented generation (GraphRAG) enhances large language models (LLMs) to generate quality answers for user questions. Many GraphRAG methods have been proposed and reported inspiring performance in answer quality. However, we observe that the current answer evaluation framework for GraphRAG has two critical flaws, i.e., unrelated questions and evaluation biases, which may lead to biased or even wrong conclusions on performance. To tackle the two flaws, we propose an unbiased evaluation framework that uses graph-text-grounded question generation to produce questions that are more related to the underlying dataset and an unbiased evaluation procedure to eliminate the biases in LLM-based answer assessment. We apply our unbiased framework to evaluate 3 representative GraphRAG methods and find that their performance gains are much more moderate than reported previously. Although our evaluation framework may still have flaws, it calls for scientific evaluations to lay solid foundations for GraphRAG research.",
+    "published": "2025-05-31",
+    "authors": [
+      "Qiming Zeng",
+      "Hao Luo",
+      "Yuhao Lin",
+      "Yicheng Jin",
+      "Yuxiang Wang",
+      "Fangcheng Fu",
+      "Xiao Yan",
+      "Jiawei Jiang"
+    ],
+    "url": "https://arxiv.org/abs/2506.06331"
+  },
+  {
+    "id": "2603.22528",
+    "title": "GraphRAG for Engineering Diagrams: ChatP&ID Enables LLM Interaction with P&IDs",
+    "abstract": "Large Language Models (LLMs) combined with Retrieval-Augmented Generation (RAG) and knowledge graphs offer new opportunities for interacting with engineering diagrams such as Piping and Instrumentation Diagrams (P&IDs). However, directly processing raw images or smart P&ID files with LLMs is often costly, inefficient, and prone to hallucinations. This work introduces ChatP&ID, an agentic framework that enables grounded and cost-effective natural-language interaction with P&IDs using Graph Retrieval-Augmented Generation (GraphRAG), a paradigm we refer to as GraphRAG for engineering diagrams. Smart P&IDs encoded in the DEXPI standard are transformed into structured knowledge graphs, which serve as the basis for graph-based retrieval and reasoning by LLM agents. This approach enables reliable querying of engineering diagrams while significantly reducing computational cost. Benchmarking across commercial LLM APIs (OpenAI, Anthropic) demonstrates that graph-based representations improve accuracy by 18% over raw image inputs and reduce token costs by 85% compared to directly ingesting smart P&ID files. While small open-source models still struggle to interpret knowledge graph formats and structured engineering data, integrating them with VectorRAG and PathRAG improves response accuracy by up to 40%. Notably, GPT-5-mini combined with ContextRAG achieves 91% accuracy at a cost of only $0.004 per task. The resulting ChatP&ID interface enables intuitive natural-language interaction with complex engineering diagrams and lays the groundwork for AI-assisted process engineering tasks such as Hazard and Operability Studies (HAZOP) and multi-agent analysis.",
+    "published": "2026-03-23",
+    "authors": [
+      "Achmad Anggawirya Alimin",
+      "Artur M. Schweidtmann"
+    ],
+    "url": "https://arxiv.org/abs/2603.22528"
+  },
+  {
+    "id": "2503.14234",
+    "title": "Beyond Single Pass, Looping Through Time: KG-IRAG with Iterative Knowledge Retrieval",
+    "abstract": "Graph Retrieval-Augmented Generation (GraphRAG) has proven highly effective in enhancing the performance of Large Language Models (LLMs) on tasks that require external knowledge. By leveraging Knowledge Graphs (KGs), GraphRAG improves information retrieval for complex reasoning tasks, providing more precise and comprehensive retrieval and generating more accurate responses to QAs. However, most RAG methods fall short in addressing multi-step reasoning, particularly when both information extraction and inference are necessary. To address this limitation, this paper presents Knowledge Graph-Based Iterative Retrieval-Augmented Generation (KG-IRAG), a novel framework that integrates KGs with iterative reasoning to improve LLMs' ability to handle queries involving temporal and logical dependencies. Through iterative retrieval steps, KG-IRAG incrementally gathers relevant data from external KGs, enabling step-by-step reasoning. The proposed approach is particularly suited for scenarios where reasoning is required alongside dynamic temporal data extraction, such as determining optimal travel times based on weather conditions or traffic patterns. Experimental results show that KG-IRAG improves accuracy in complex reasoning tasks by effectively integrating external knowledge with iterative, logic-based retrieval. Additionally, three new datasets: weatherQA-Irish, weatherQA-Sydney, and trafficQA-TFNSW, are formed to evaluate KG-IRAG's performance, demonstrating its potential beyond traditional RAG applications.",
+    "published": "2025-03-18",
+    "authors": [
+      "Ruiyi Yang",
+      "Hao Xue",
+      "Imran Razzak",
+      "Hakim Hacid",
+      "Flora D. Salim"
+    ],
+    "url": "https://arxiv.org/abs/2503.14234"
+  },
+  {
+    "id": "2507.03608",
+    "title": "Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN)",
+    "abstract": "Generative AI (GenAI) is expected to play a pivotal role in enabling autonomous optimization in future wireless networks. Within the ORAN architecture, Large Language Models (LLMs) can be specialized to generate xApps and rApps by leveraging specifications and API definitions from the RAN Intelligent Controller (RIC) platform. However, fine-tuning base LLMs for telecom-specific tasks remains expensive and resource-intensive. Retrieval-Augmented Generation (RAG) offers a practical alternative through in-context learning, enabling domain adaptation without full retraining. While traditional RAG systems rely on vector-based retrieval, emerging variants such as GraphRAG and Hybrid GraphRAG incorporate knowledge graphs or dual retrieval strategies to support multi-hop reasoning and improve factual grounding. Despite their promise, these methods lack systematic, metric-driven evaluations, particularly in high-stakes domains such as ORAN. In this study, we conduct a comparative evaluation of Vector RAG, GraphRAG, and Hybrid GraphRAG using ORAN specifications. We assess performance across varying question complexities using established generation metrics: faithfulness, answer relevance, context relevance, and factual correctness. Results show that both GraphRAG and Hybrid GraphRAG outperform traditional RAG. Hybrid GraphRAG improves factual correctness by 8%, while GraphRAG improves context relevance by 11%.",
+    "published": "2025-07-04",
+    "authors": [
+      "Sarat Ahmad",
+      "Zeinab Nezami",
+      "Maryam Hafeez",
+      "Syed Ali Raza Zaidi"
+    ],
+    "url": "https://arxiv.org/abs/2507.03608"
+  },
+  {
+    "id": "2509.09272",
+    "title": "Fusing Knowledge and Language: A Comparative Study of Knowledge Graph-Based Question Answering with LLMs",
+    "abstract": "Knowledge graphs, a powerful tool for structuring information through relational triplets, have recently become the new front-runner in enhancing question-answering systems. While traditional Retrieval Augmented Generation (RAG) approaches are proficient in fact-based and local context-based extraction from concise texts, they encounter limitations when addressing the thematic and holistic understanding of complex, extensive texts, requiring a deeper analysis of both text and context. This paper presents a comprehensive technical comparative study of three different methodologies for constructing knowledge graph triplets and integrating them with Large Language Models (LLMs) for question answering: spaCy, Stanford CoreNLP-OpenIE, and GraphRAG, all leveraging open source technologies. We evaluate the effectiveness, feasibility, and adaptability of these methods by analyzing their capabilities, state of development, and their impact on the performance of LLM-based question answering. Experimental results indicate that while OpenIE provides the most comprehensive coverage of triplets, GraphRAG demonstrates superior reasoning abilities among the three. We conclude with a discussion on the strengths and limitations of each method and provide insights into future directions for improving knowledge graph-based question answering.",
+    "published": "2025-09-11",
+    "authors": [
+      "Vaibhav Chaudhary",
+      "Neha Soni",
+      "Narotam Singh",
+      "Amita Kapoor"
+    ],
+    "url": "https://arxiv.org/abs/2509.09272"
+  },
+  {
+    "id": "2605.28004",
+    "title": "Beyond Chunk-Local Extraction: Cross-Chunk Graph Augmentation for GraphRAG",
+    "abstract": "GraphRAG extends retrieval-augmented generation by organizing corpora as explicit knowledge graphs, enabling graph-based retrieval for complex question answering. However, existing frameworks extract entities and relations within individual chunks, leaving cross-chunk relations -- those whose evidence spans multiple passages -- systematically absent from the index. Exhaustive LLM-based recovery of such relations is impractical due to the combinatorial explosion of chunk combinations. We present CrossAug, a GNN-guided CROSS-Chunk Graph AUGmentation method that enriches GraphRAG indices with cross-chunk relational structure as an offline step before query-time retrieval. CrossAug derives training supervision through self-supervised graph corruption, uses a topology-aware GNN to score subgraphs for missingness, and applies evidence-grounded LLM completion only to selected high-scoring regions. Experiments on three LLM-based GraphRAG frameworks across four multi-hop and long-document QA benchmarks demonstrate that CrossAug consistently improves performance, confirming the benefit of cross-chunk graph augmentation for retrieval-based question answering. Our code is available at https://github.com/DonFinliani/CrossAug.",
+    "published": "2026-05-27",
+    "authors": [
+      "Jiaming Zhang",
+      "Yibo Zhao",
+      "Jing Yu",
+      "Jianxiang Yu",
+      "Xiang Li"
+    ],
+    "url": "https://arxiv.org/abs/2605.28004"
+  },
+  {
+    "id": "2609.29083",
+    "title": "Advancing the Physical Internet with GraphRAG: A New Way to Review and Integrate Existing Research",
+    "abstract": "Physical Internet (PI) is an emerging concept that applies the digital internet as a design metaphor for the development of sustainable, interoperable, and collaborative freight transportation. It is considered a way to bring logistics into the next generation of transformation. Effective tools for organizing and integrating knowledge are essential for navigating the emerging research in this area. In this study, we explore the application of Graph Retrieval Augmented Generation (GraphRAG) in the context of PI, using GPT-4o mini and Neo4j to construct a knowledge graph and systematically analyze existing PI-related literature. Our approach synthesizes scattered research findings, highlights emerging trends, and identifies knowledge gaps. Furthermore, we demonstrate that GraphRAG improves accessibility by structuring complex information into interconnected graphs and provides a deeper understanding of underlying research dynamics. This research will contribute to future research and innovation by providing a new method of information analysis in the PI domain.",
+    "published": "2026-09-24",
+    "authors": [
+      "Hisatoshi Naganawa",
+      "Enna Hirata",
+      "Russell G. Thompson",
+      "Akira Yamada"
+    ],
+    "url": "https://arxiv.org/abs/2609.29083"
+  },
+  {
+    "id": "2506.19967",
+    "title": "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs",
+    "abstract": "Large Language Models (LLMs) have achieved impressive capabilities in language understanding and generation, yet they continue to underperform on knowledge-intensive reasoning tasks due to limited access to structured context and multi-hop information. Retrieval-Augmented Generation (RAG) partially mitigates this by grounding generation in retrieved context, but conventional RAG and GraphRAG methods often fail to capture relational structure across nodes in knowledge graphs. We introduce Inference-Scaled GraphRAG, a novel framework that enhances LLM-based graph reasoning by applying inference-time compute scaling. Our method combines sequential scaling with deep chain-of-thought graph traversal, and parallel scaling with majority voting over sampled trajectories within an interleaved reasoning-execution loop. Experiments on the GRBench benchmark demonstrate that our approach significantly improves multi-hop question answering performance, achieving substantial gains over both traditional GraphRAG and prior graph traversal baselines. These findings suggest that inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs",
+    "published": "2025-06-24",
+    "authors": [
+      "Travis Thompson",
+      "Seung-Hwan Lim",
+      "Paul Liu",
+      "Ruoying He",
+      "Dongkuan Xu"
+    ],
+    "url": "https://arxiv.org/abs/2506.19967"
+  },
+  {
+    "id": "2511.08274",
+    "title": "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs",
+    "abstract": "While Retrieval-Augmented Generation (RAG) methods commonly draw information from unstructured documents, the emerging paradigm of GraphRAG aims to leverage structured data such as knowledge graphs. Most existing GraphRAG efforts focus on Resource Description Framework (RDF) knowledge graphs, relying on triple representations and SPARQL queries. However, the potential of Cypher and Labeled Property Graph (LPG) databases to serve as scalable and effective reasoning engines within GraphRAG pipelines remains underexplored in current research literature. To fill this gap, we propose Multi-Agent GraphRAG, a modular LLM agentic system for text-to-Cypher query generation serving as a natural language interface to LPG-based graph data. Our proof-of-concept system features an LLM-based workflow for automated Cypher queries generation and execution, using Memgraph as the graph database backend. Iterative content-aware correction and normalization, reinforced by an aggregated feedback loop, ensures both semantic and syntactic refinement of generated queries. We evaluate our system on the CypherBench graph dataset covering several general domains with diverse types of queries. In addition, we demonstrate performance of the proposed workflow on a property graph derived from the IFC (Industry Foundation Classes) data, representing a digital twin of a building. This highlights how such an approach can bridge AI with real-world applications at scale, enabling industrial digital automation use cases.",
+    "published": "2025-11-11",
+    "authors": [
+      "Anton Gusarov",
+      "Anastasia Volkova",
+      "Valentin Khrulkov",
+      "Andrey Kuznetsov",
+      "Evgenii Maslov",
+      "Ivan Oseledets"
+    ],
+    "url": "https://arxiv.org/abs/2511.08274"
+  },
+  {
+    "id": "2504.09823",
+    "title": "RAKG:Document-level Retrieval Augmented Knowledge Graph Construction",
+    "abstract": "With the rise of knowledge graph based retrieval-augmented generation (RAG) techniques such as GraphRAG and Pike-RAG, the role of knowledge graphs in enhancing the reasoning capabilities of large language models (LLMs) has become increasingly prominent. However, traditional Knowledge Graph Construction (KGC) methods face challenges like complex entity disambiguation, rigid schema definition, and insufficient cross-document knowledge integration. This paper focuses on the task of automatic document-level knowledge graph construction. It proposes the Document-level Retrieval Augmented Knowledge Graph Construction (RAKG) framework. RAKG extracts pre-entities from text chunks and utilizes these pre-entities as queries for RAG, effectively addressing the issue of long-context forgetting in LLMs and reducing the complexity of Coreference Resolution. In contrast to conventional KGC methods, RAKG more effectively captures global information and the interconnections among disparate nodes, thereby enhancing the overall performance of the model. Additionally, we transfer the RAG evaluation framework to the KGC field and filter and evaluate the generated knowledge graphs, thereby avoiding incorrectly generated entities and relationships caused by hallucinations in LLMs. We further developed the MINE dataset by constructing standard knowledge graphs for each article and experimentally validated the performance of RAKG. The results show that RAKG achieves an accuracy of 95.91 % on the MINE dataset, a 6.2 % point improvement over the current best baseline, GraphRAG (89.71 %). The code is available at https://github.com/LMMApplication/RAKG.",
+    "published": "2025-04-14",
+    "authors": [
+      "Hairong Zhang",
+      "Jiaheng Si",
+      "Guohang Yan",
+      "Boyuan Qi",
+      "Pinlong Cai",
+      "Song Mao",
+      "Ding Wang",
+      "Botian Shi"
+    ],
+    "url": "https://arxiv.org/abs/2504.09823"
+  },
+  {
+    "id": "2601.14662",
+    "title": "Query-Efficient Agentic Graph Extraction Attacks on GraphRAG Systems",
+    "abstract": "Graph-based retrieval-augmented generation (GraphRAG) systems construct knowledge graphs over document collections to support multi-hop reasoning. While prior work shows that GraphRAG responses may leak retrieved subgraphs, the feasibility of query-efficient reconstruction of the hidden graph structure remains unexplored under realistic query budgets. We study a budget-constrained black-box setting where an adversary adaptively queries the system to steal its latent entity-relation graph. We propose AGEA (Agentic Graph Extraction Attack), a framework that leverages a novelty-guided exploration-exploitation strategy, external graph memory modules, and a two-stage graph extraction pipeline combining lightweight discovery with LLM-based filtering. We evaluate AGEA on medical, agriculture, and literary datasets across Microsoft-GraphRAG and LightRAG systems. Under identical query budgets, AGEA significantly outperforms prior attack baselines, recovering up to 90% of entities and relationships while maintaining high precision. These results demonstrate that modern GraphRAG systems are highly vulnerable to structured, agentic extraction attacks, even under strict query limits. The code is available at https://github.com/shuashua0608/AGEA.",
+    "published": "2026-01-21",
+    "authors": [
+      "Shuhua Yang",
+      "Jiahao Zhang",
+      "Yilong Wang",
+      "Dongwon Lee",
+      "Suhang Wang"
+    ],
+    "url": "https://arxiv.org/abs/2601.14662"
+  },
+  {
+    "id": "2607.11683",
+    "title": "RAGU: A Multi-Step GraphRAG Engine with a Compact Domain-Adapted LLM",
+    "abstract": "Graph retrieval-augmented generation (GraphRAG) enhances large language models with structured knowledge, yet existing systems construct knowledge graphs in a single extraction pass, producing noisy entities and brittle retrieval. RAGU, an open-source modular GraphRAG engine, addresses this by separating extraction from consolidation: entities and relations pass through two-stage typed extraction, DBSCAN-backed deduplication, LLM summarization, and Leiden community detection. A key insight motivates a compact extractor: the skills an in-pipeline LLM needs - comprehension, extraction, reasoning over context - are language skills that grow only weakly with model size, unlike factual world knowledge. Accordingly, we train Meno-Lite-0.1, a 7B model optimized for language skills, which outperforms Qwen2.5-32B on knowledge-graph construction (+12.5% relative harmonic mean) and matches it on English GraphRAG tasks. On GraphRAG-Bench (Medical), RAGU retrieves the most complete context at every factoid level (evidence recall up to 0.84 vs. $\\leq$0.76) and overtakes HippoRAG2 on synthesis tasks; on multi-hop factoid QA, the apparent HippoRAG2 advantage is shown to be largely an answer-format artifact. RAGU is installable via $\\texttt{pip install graph_ragu}$, runs on a single GPU, and is released under MIT. The source code is publicly available at https://github.com/RaguTeam/RAGU, and the Meno-Lite-0.1 model can be obtained from https://huggingface.co/bond005/meno-lite-0.1.",
+    "published": "2026-07-13",
+    "authors": [
+      "Mikhail Komarov",
+      "Ivan Bondarenko",
+      "Stanislav Shtuka",
+      "Oleg Sedukhin",
+      "Roman Shuvalov",
+      "Yana Dementyeva",
+      "Matvey Solovyov",
+      "Nikolay O. Nikitin"
+    ],
+    "url": "https://arxiv.org/abs/2607.11683"
+  }
+]

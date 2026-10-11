@@ -1,0 +1,1950 @@
+@prefix kg: <http://example.org/graphscout/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kg:extends a owl:ObjectProperty ;
+    rdfs:comment "method builds on or improves another"@en .
+
+kg:measuredBy a owl:ObjectProperty ;
+    rdfs:comment "evaluation reports a metric"@en .
+
+kg:mentions a owl:ObjectProperty .
+
+kg:originalRelation a owl:DatatypeProperty ;
+    rdfs:comment "relation text exactly as the LLM extracted it"@en .
+
+<http://example.org/graphscout/paper/2501.14050> a kg:Paper ;
+    rdfs:label "GraphRAG under Fire" ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Poisoning_Attack>,
+        <http://example.org/graphscout/entity/Poisoning_Text>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation> ;
+    schema:author "Changjiang Li",
+        "Jiacheng Liang",
+        "Neil Gong",
+        "Rongyi Zhu",
+        "Tanqiu Jiang",
+        "Ting Wang",
+        "Yuhui Wang" ;
+    schema:datePublished "2025-01-23"^^xsd:date ;
+    schema:name "GraphRAG under Fire" ;
+    schema:url <https://arxiv.org/abs/2501.14050> .
+
+<http://example.org/graphscout/paper/2504.09823> a kg:Paper ;
+    rdfs:label "RAKG:Document-level Retrieval Augmented Knowledge Graph Construction" ;
+    kg:mentions <http://example.org/graphscout/entity/Document_level_Retrieval_Augmented_Knowledge_Graph_Construction>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Knowledge_Graph_Construction>,
+        <http://example.org/graphscout/entity/Knowledge_Graph_Construction_KGC_method>,
+        <http://example.org/graphscout/entity/Pike_RAG>,
+        <http://example.org/graphscout/entity/knowledge_graph> ;
+    schema:author "Botian Shi",
+        "Boyuan Qi",
+        "Ding Wang",
+        "Guohang Yan",
+        "Hairong Zhang",
+        "Jiaheng Si",
+        "Pinlong Cai",
+        "Song Mao" ;
+    schema:datePublished "2025-04-14"^^xsd:date ;
+    schema:name "RAKG:Document-level Retrieval Augmented Knowledge Graph Construction" ;
+    schema:url <https://arxiv.org/abs/2504.09823> .
+
+<http://example.org/graphscout/paper/2511.08274> a kg:Paper ;
+    rdfs:label "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs" ;
+    kg:mentions <http://example.org/graphscout/entity/Cypher>,
+        <http://example.org/graphscout/entity/CypherBench>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/IFC>,
+        <http://example.org/graphscout/entity/Labeled_Property_Graph>,
+        <http://example.org/graphscout/entity/Memgraph>,
+        <http://example.org/graphscout/entity/Multi_Agent_GraphRAG>,
+        <http://example.org/graphscout/entity/Resource_Description_Framework>,
+        <http://example.org/graphscout/entity/knowledge_graph> ;
+    schema:author "Anastasia Volkova",
+        "Andrey Kuznetsov",
+        "Anton Gusarov",
+        "Evgenii Maslov",
+        "Ivan Oseledets",
+        "Valentin Khrulkov" ;
+    schema:datePublished "2025-11-11"^^xsd:date ;
+    schema:name "Multi-Agent GraphRAG: A Text-to-Cypher Framework for Labeled Property Graphs" ;
+    schema:url <https://arxiv.org/abs/2511.08274> .
+
+<http://example.org/graphscout/paper/2601.14662> a kg:Paper ;
+    rdfs:label "Query-Efficient Agentic Graph Extraction Attacks on GraphRAG Systems" ;
+    kg:mentions <http://example.org/graphscout/entity/GraphRAG_system>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    schema:author "Dongwon Lee",
+        "Jiahao Zhang",
+        "Shuhua Yang",
+        "Suhang Wang",
+        "Yilong Wang" ;
+    schema:datePublished "2026-01-21"^^xsd:date ;
+    schema:name "Query-Efficient Agentic Graph Extraction Attacks on GraphRAG Systems" ;
+    schema:url <https://arxiv.org/abs/2601.14662> .
+
+<http://example.org/graphscout/paper/2603.05698> a kg:Paper ;
+    rdfs:label "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis" ;
+    kg:mentions <http://example.org/graphscout/entity/Factual_hallucinations>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/Metric>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation_Benchmark>,
+        <http://example.org/graphscout/entity/exact_match>,
+        <http://example.org/graphscout/entity/exactly_match>,
+        <http://example.org/graphscout/entity/knowledge_graph> ;
+    schema:author "Alan Davoust",
+        "Anderson R. Avila",
+        "Hazem Amamou",
+        "Stéphane Gagnon" ;
+    schema:datePublished "2026-03-05"^^xsd:date ;
+    schema:name "Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis" ;
+    schema:url <https://arxiv.org/abs/2603.05698> .
+
+<http://example.org/graphscout/paper/2605.28004> a kg:Paper ;
+    rdfs:label "Beyond Chunk-Local Extraction: Cross-Chunk Graph Augmentation for GraphRAG" ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    schema:author "Jiaming Zhang",
+        "Jianxiang Yu",
+        "Jing Yu",
+        "Xiang Li",
+        "Yibo Zhao" ;
+    schema:datePublished "2026-05-27"^^xsd:date ;
+    schema:name "Beyond Chunk-Local Extraction: Cross-Chunk Graph Augmentation for GraphRAG" ;
+    schema:url <https://arxiv.org/abs/2605.28004> .
+
+<http://example.org/graphscout/paper/2607.11683> a kg:Paper ;
+    rdfs:label "RAGU: A Multi-Step GraphRAG Engine with a Compact Domain-Adapted LLM" ;
+    kg:mentions <http://example.org/graphscout/entity/GraphRAG_Bench>,
+        <http://example.org/graphscout/entity/GraphRAG_engine>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/HippoRAG2>,
+        <http://example.org/graphscout/entity/Meno_Lite_0_1>,
+        <http://example.org/graphscout/entity/Multi_hop_factoid_QA>,
+        <http://example.org/graphscout/entity/Qwen2_5_32B> ;
+    schema:author "Ivan Bondarenko",
+        "Matvey Solovyov",
+        "Mikhail Komarov",
+        "Nikolay O. Nikitin",
+        "Oleg Sedukhin",
+        "Roman Shuvalov",
+        "Stanislav Shtuka",
+        "Yana Dementyeva" ;
+    schema:datePublished "2026-07-13"^^xsd:date ;
+    schema:name "RAGU: A Multi-Step GraphRAG Engine with a Compact Domain-Adapted LLM" ;
+    schema:url <https://arxiv.org/abs/2607.11683> .
+
+<http://example.org/graphscout/paper/2609.29083> a kg:Paper ;
+    rdfs:label "Advancing the Physical Internet with GraphRAG: A New Way to Review and Integrate Existing Research" ;
+    kg:mentions <http://example.org/graphscout/entity/GPT_4o_mini>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Neo4j>,
+        <http://example.org/graphscout/entity/PI>,
+        <http://example.org/graphscout/entity/knowledge_graph> ;
+    schema:author "Akira Yamada",
+        "Enna Hirata",
+        "Hisatoshi Naganawa",
+        "Russell G. Thompson" ;
+    schema:datePublished "2026-09-24"^^xsd:date ;
+    schema:name "Advancing the Physical Internet with GraphRAG: A New Way to Review and Integrate Existing Research" ;
+    schema:url <https://arxiv.org/abs/2609.29083> .
+
+<http://example.org/graphscout/stmt/02cb57870d11d6a1> a rdf:Statement ;
+    kg:originalRelation "highlights" ;
+    rdf:object <http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/048ad783f5873f69> a rdf:Statement ;
+    kg:originalRelation "compares" ;
+    rdf:object <http://example.org/graphscout/entity/UltraDomain_datasets> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/0493d5c0e7a80a31> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/multiple_backbone_models> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/067d2136a52b53f7> a rdf:Statement ;
+    kg:originalRelation "demonstrates" ;
+    rdf:object <http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/07a035039b4e476f> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/08bd78b07f5e1b1b> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/Phi_4_mini> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/0afffadba6e01fd2> a rdf:Statement ;
+    kg:originalRelation "combines" ;
+    rdf:object <http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/0b285824db90e6e7> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/Context_relevance> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/19cea497580946da> a rdf:Statement ;
+    kg:originalRelation "constructs" ;
+    rdf:object <http://example.org/graphscout/entity/domain_specific_knowledge_graph> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/19d0c688de438731> a rdf:Statement ;
+    kg:originalRelation "demonstrates" ;
+    rdf:object <http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/2150082e05e612e1> a rdf:Statement ;
+    kg:originalRelation "achieves" ;
+    rdf:object <http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/21528260a9fdabe0> a rdf:Statement ;
+    kg:originalRelation "outperforms" ;
+    rdf:object <http://example.org/graphscout/entity/token_costs> ;
+    rdf:predicate kg:outperforms ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/21c92b11714efe31> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/24566e499598aea5> a rdf:Statement ;
+    kg:originalRelation "evaluated" ;
+    rdf:object <http://example.org/graphscout/entity/clinician_facing_question_answering> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/257eed15e84b1ad0> a rdf:Statement ;
+    kg:originalRelation "outperforms" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:outperforms ;
+    rdf:subject <http://example.org/graphscout/entity/Vector_RAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/25f6d0e094297bfd> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/structured_knowledge> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/29043b197b16da94> a rdf:Statement ;
+    kg:originalRelation "introduces" ;
+    rdf:object <http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/2bf94eac0dca09b8> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/multi_hop_question_answering_performance> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/2f519d5324340a0e> a rdf:Statement ;
+    kg:originalRelation "combines" ;
+    rdf:object <http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/302c842ce7089ee8> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/indexed_efficiency> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/35b19dc6d9921326> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_gaps> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/3707c8c70f2b895b> a rdf:Statement ;
+    kg:originalRelation "compared with" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/383a9c9d9273f78a> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/four_models> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/3954bd00b51a7969> a rdf:Statement ;
+    kg:originalRelation "supports" ;
+    rdf:object <http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/3aaf63683a256973> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2506.19967> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/3bf7f939dea9fd69> a rdf:Statement ;
+    kg:originalRelation "demonstrates" ;
+    rdf:object <http://example.org/graphscout/entity/over_10_in_overall_quality> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/3f3949fe63324162> a rdf:Statement ;
+    kg:originalRelation "establishes" ;
+    rdf:object <http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/44a1a4576791e1c9> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/comprehensive_benchmark_study> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/450f45f88169c75f> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/458e99324f8d0120> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/Mistral> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/482a8d78a4a52c58> a rdf:Statement ;
+    kg:originalRelation "highlights" ;
+    rdf:object <http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/4a9e682cea2c8a26> a rdf:Statement ;
+    kg:originalRelation "uses" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/4b1c3a5b6edeebf9> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.14234> .
+
+<http://example.org/graphscout/stmt/4bc1a25ac8b98328> a rdf:Statement ;
+    kg:originalRelation "introduces" ;
+    rdf:object <http://example.org/graphscout/entity/two_key_components> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/4e1946e6f2885daa> a rdf:Statement ;
+    kg:originalRelation "combines" ;
+    rdf:object <http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/52d84d072589c945> a rdf:Statement ;
+    kg:originalRelation "finds" ;
+    rdf:object <http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/paper/2506.06331> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.06331> .
+
+<http://example.org/graphscout/stmt/53200d59352b57ad> a rdf:Statement ;
+    kg:originalRelation "analyzes" ;
+    rdf:object <http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/53b56a482a693683> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/hallucinations> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/54cea53d8cbc97a0> a rdf:Statement ;
+    kg:originalRelation "standardizes" ;
+    rdf:object <http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/57cca632f8fc7399> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/5e0a81ac9b822814> a rdf:Statement ;
+    kg:originalRelation "integrates" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/5f8608509a932e4f> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/Factual_correctness> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Hybrid_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/62f3b643cc301347> a rdf:Statement ;
+    kg:originalRelation "lays the groundwork for" ;
+    rdf:object <http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/ChatP_ID> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/64488169b4135dc7> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/HotpotQA> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/spaCy> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/64c3230776fd3ef5> a rdf:Statement ;
+    kg:originalRelation "demonstrates" ;
+    rdf:object <http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/689a9affff27f53d> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Hybrid_GraphRAG> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/69deb274572afedf> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/local_retrieval> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/69ed62959546fad0> a rdf:Statement ;
+    kg:originalRelation "implemented on" ;
+    rdf:object <http://example.org/graphscout/entity/real_world_EHR_schema_documentation> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/6d16335e91fa22e2> a rdf:Statement ;
+    kg:originalRelation "compared with" ;
+    rdf:object <http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/6f86b787fc65516d> a rdf:Statement ;
+    kg:originalRelation "designs" ;
+    rdf:object <http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/7168c05abe99c790> a rdf:Statement ;
+    kg:originalRelation "uses" ;
+    rdf:object <http://example.org/graphscout/entity/DEXPI> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/76ffdb00f0366129> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/ORAN_specifications> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/82727996bbeee692> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/commercial_LLM_APIs> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/830587490caf4985> a rdf:Statement ;
+    kg:originalRelation "achieves" ;
+    rdf:object <http://example.org/graphscout/entity/only_0_004_per_task> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/87431afd7655d65c> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/GraphRAG_FI> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2503.13804> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/8b495a275fd78892> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/spaCy> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/8ccac4d947e9d7d0> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/9253621e9ff48d57> a rdf:Statement ;
+    kg:originalRelation "enables" ;
+    rdf:object <http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/93c594ea88e4e819> a rdf:Statement ;
+    kg:originalRelation "employs" ;
+    rdf:object <http://example.org/graphscout/entity/logits_based_selection_strategy> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/9401eff7dda008c3> a rdf:Statement ;
+    kg:originalRelation "enables" ;
+    rdf:object <http://example.org/graphscout/entity/Large_Language_Models> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/Plasma_GraphRAG_framework> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2604.06279> .
+
+<http://example.org/graphscout/stmt/96e6cd9a1e5b6cd0> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/Llama_3_1> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/9715d471cc1ee6f3> a rdf:Statement ;
+    kg:originalRelation "assesses performance" ;
+    rdf:object <http://example.org/graphscout/entity/varying_question_complexities> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/972135e5295c4b05> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/global_retrieval> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/9a3cd89df8659630> a rdf:Statement ;
+    kg:originalRelation "supports" ;
+    rdf:object <http://example.org/graphscout/entity/efficient_knowledge_increment> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/9c72cd569092b27a> a rdf:Statement ;
+    kg:originalRelation "reduces" ;
+    rdf:object <http://example.org/graphscout/entity/over_reliance_on_retrievals> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/9ccbb323ffb540dd> a rdf:Statement ;
+    kg:originalRelation "compares" ;
+    rdf:object <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/9de10762629424f9> a rdf:Statement ;
+    kg:originalRelation "introduces" ;
+    rdf:object <http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/9e0ebcb7f493a29e> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2509.09272> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/a11a265b8014ac66> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/Factual_correctness> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/a2946e77276afff6> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/a3742984925d69c9> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/HotpotQA> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/a47a80aad10990f5> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/ae7f6ffaea9daef0> a rdf:Statement ;
+    kg:originalRelation "suggests" ;
+    rdf:object <http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.19967> .
+
+<http://example.org/graphscout/stmt/b1f6f88c5d43e5b0> a rdf:Statement ;
+    kg:originalRelation "enables" ;
+    rdf:object <http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/ChatP_ID> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/b30f4840ea7beb9c> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/spaCy> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/b99ce4bdd6605411> a rdf:Statement ;
+    kg:originalRelation "enables" ;
+    rdf:object <http://example.org/graphscout/entity/intuitive_natural_language_interaction> ;
+    rdf:predicate kg:addresses ;
+    rdf:subject <http://example.org/graphscout/entity/ChatP_ID> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/bb257d1d1e0fadac> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.14234> .
+
+<http://example.org/graphscout/stmt/bbaba424007eb4e4> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/bcf00386b9f0d4f3> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/factual_accuracy> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/c34e311617c5aa9c> a rdf:Statement ;
+    kg:originalRelation "uses" ;
+    rdf:object <http://example.org/graphscout/entity/graph_text_grounded_question_generation> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/paper/2506.06331> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.06331> .
+
+<http://example.org/graphscout/stmt/cb48901ccd065f3b> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/cd4b38db7620cef6> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/Vector_RAG> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/d3583c399c87aa97> a rdf:Statement ;
+    kg:originalRelation "deployed via" ;
+    rdf:object <http://example.org/graphscout/entity/Ollama> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/d37e2a3af07ab941> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/Qwen_2_5> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/d4600bf71b1347d7> a rdf:Statement ;
+    kg:originalRelation "compares" ;
+    rdf:object <http://example.org/graphscout/entity/14_6x_construction_efficiency> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/da5f9da4f8c5576f> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/knowledge_graph_QA_tasks> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/e2aa8b70f35fb99f> a rdf:Statement ;
+    kg:originalRelation "assesses performance" ;
+    rdf:object <http://example.org/graphscout/entity/established_generation_metrics> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/paper/2507.03608> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/e9fddf8e39941d66> a rdf:Statement ;
+    kg:originalRelation "consists of" ;
+    rdf:object <http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration> ;
+    rdf:predicate kg:partOf ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_FI> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/ea09ba301df02628> a rdf:Statement ;
+    kg:originalRelation "explains" ;
+    rdf:object <http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements> ;
+    rdf:predicate kg:reports ;
+    rdf:subject <http://example.org/graphscout/paper/2502.11371> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2502.11371> .
+
+<http://example.org/graphscout/stmt/edc39cc5273b927b> a rdf:Statement ;
+    kg:originalRelation "proposes" ;
+    rdf:object <http://example.org/graphscout/entity/unbiased_evaluation_framework> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/paper/2506.06331> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2506.06331> .
+
+<http://example.org/graphscout/stmt/eecc19fc3262cbc1> a rdf:Statement ;
+    kg:originalRelation "compares" ;
+    rdf:object <http://example.org/graphscout/entity/1_9x_retrieval_efficiency> ;
+    rdf:predicate kg:comparedWith ;
+    rdf:subject <http://example.org/graphscout/entity/TagRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2601.05254> .
+
+<http://example.org/graphscout/stmt/f66418421d3bab12> a rdf:Statement ;
+    kg:originalRelation "improves" ;
+    rdf:object <http://example.org/graphscout/entity/Context_relevance> ;
+    rdf:predicate kg:improves ;
+    rdf:subject <http://example.org/graphscout/entity/Hybrid_GraphRAG> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2507.03608> .
+
+<http://example.org/graphscout/stmt/f800cedb5c2e2ddc> a rdf:Statement ;
+    kg:originalRelation "deployed on" ;
+    rdf:object <http://example.org/graphscout/entity/consumer_hardware> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2605.20815> .
+
+<http://example.org/graphscout/stmt/f8c197d766cf79ac> a rdf:Statement ;
+    kg:originalRelation "preferred" ;
+    rdf:object <http://example.org/graphscout/entity/clinician_facing_question_answering> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/f8d0e888a5326c0d> a rdf:Statement ;
+    kg:originalRelation "constructed" ;
+    rdf:object <http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs> ;
+    rdf:predicate kg:proposes ;
+    rdf:subject <http://example.org/graphscout/entity/BEACON_SP> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2610.09026> .
+
+<http://example.org/graphscout/stmt/fa7d17aebb1884c1> a rdf:Statement ;
+    kg:originalRelation "evaluated on" ;
+    rdf:object <http://example.org/graphscout/entity/HotpotQA> ;
+    rdf:predicate kg:evaluatedOn ;
+    rdf:subject <http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2509.09272> .
+
+<http://example.org/graphscout/stmt/fbdc4a8ab99b8bd2> a rdf:Statement ;
+    kg:originalRelation "outperforms" ;
+    rdf:object <http://example.org/graphscout/entity/raw_image_inputs> ;
+    rdf:predicate kg:outperforms ;
+    rdf:subject <http://example.org/graphscout/paper/2603.22528> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2603.22528> .
+
+<http://example.org/graphscout/stmt/fd8cfba6665e7693> a rdf:Statement ;
+    kg:originalRelation "on" ;
+    rdf:object <http://example.org/graphscout/entity/Large_Language_Models> ;
+    rdf:predicate kg:relatedTo ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Integration> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+<http://example.org/graphscout/stmt/fdb843fcc43551af> a rdf:Statement ;
+    kg:originalRelation "employs" ;
+    rdf:object <http://example.org/graphscout/entity/two_stage_filtering_mechanism> ;
+    rdf:predicate kg:uses ;
+    rdf:subject <http://example.org/graphscout/entity/GraphRAG_Filtering> ;
+    prov:wasDerivedFrom <http://example.org/graphscout/paper/2503.13804> .
+
+prov:wasDerivedFrom rdfs:comment "links an extracted statement to its source paper"@en .
+
+<http://example.org/graphscout/entity/Answer_relevance> a kg:Metric ;
+    rdfs:label "Answer relevance" .
+
+<http://example.org/graphscout/entity/ContextRAG> a kg:Model ;
+    rdfs:label "ContextRAG" .
+
+<http://example.org/graphscout/entity/Cypher> a kg:Concept ;
+    rdfs:label "Cypher" .
+
+<http://example.org/graphscout/entity/CypherBench> a kg:Dataset ;
+    rdfs:label "CypherBench" .
+
+<http://example.org/graphscout/entity/DEXPI_standard> a kg:Dataset ;
+    rdfs:label "DEXPI standard" .
+
+<http://example.org/graphscout/entity/Deep_chain_of_thought_graph_traversal> a kg:Method ;
+    rdfs:label "Deep chain-of-thought graph traversal" .
+
+<http://example.org/graphscout/entity/Document_level_Retrieval_Augmented_Knowledge_Graph_Construction> a kg:Method ;
+    rdfs:label "Document-level Retrieval Augmented Knowledge Graph Construction" ;
+    skos:altLabel "RAKG" .
+
+<http://example.org/graphscout/entity/EHR_schema_retrieval> a kg:Task ;
+    rdfs:label "EHR schema retrieval" .
+
+<http://example.org/graphscout/entity/Electronic_Health_Record> a kg:Dataset ;
+    rdfs:label "Electronic Health Record" ;
+    skos:altLabel "EHR" .
+
+<http://example.org/graphscout/entity/Factual_hallucinations> a kg:Concept ;
+    rdfs:label "Factual hallucinations" .
+
+<http://example.org/graphscout/entity/Faithfulness> a kg:Metric ;
+    rdfs:label "Faithfulness" .
+
+<http://example.org/graphscout/entity/GPT_4o_mini> a kg:Model ;
+    rdfs:label "GPT-4o mini" .
+
+<http://example.org/graphscout/entity/GPT_5_mini> a kg:Model ;
+    rdfs:label "GPT-5-mini" .
+
+<http://example.org/graphscout/entity/GRBench_benchmark> a kg:Dataset ;
+    rdfs:label "GRBench benchmark" .
+
+<http://example.org/graphscout/entity/GraphRAG_Bench> a kg:Dataset ;
+    rdfs:label "GraphRAG-Bench" .
+
+<http://example.org/graphscout/entity/GraphRAG_engine> a kg:Model ;
+    rdfs:label "GraphRAG engine" .
+
+<http://example.org/graphscout/entity/GraphRAG_methods> a kg:Method ;
+    rdfs:label "GraphRAG methods" .
+
+<http://example.org/graphscout/entity/GraphRAG_system> a kg:Model ;
+    rdfs:label "GraphRAG system" .
+
+<http://example.org/graphscout/entity/Gyrokinetic_plasma_simulations> a kg:Task ;
+    rdfs:label "Gyrokinetic plasma simulations" .
+
+<http://example.org/graphscout/entity/Hazard_and_Operability_Studies> a kg:Task ;
+    rdfs:label "Hazard and Operability Studies" ;
+    skos:altLabel "HAZOP" .
+
+<http://example.org/graphscout/entity/HippoRAG2> a kg:Model ;
+    rdfs:label "HippoRAG2" .
+
+<http://example.org/graphscout/entity/IFC> a kg:Dataset ;
+    rdfs:label "IFC" .
+
+<http://example.org/graphscout/entity/Integrated_Motivational_Volitional_Model> a kg:Concept ;
+    rdfs:label "Integrated Motivational-Volitional Model" .
+
+<http://example.org/graphscout/entity/KG> a kg:Dataset ;
+    rdfs:label "KG" .
+
+<http://example.org/graphscout/entity/Knowledge_Graph_Construction> a kg:Task ;
+    rdfs:label "Knowledge Graph Construction" ;
+    skos:altLabel "KGC" .
+
+<http://example.org/graphscout/entity/Knowledge_Graph_Construction_KGC_method> a kg:Method ;
+    rdfs:label "Knowledge Graph Construction (KGC) method" .
+
+<http://example.org/graphscout/entity/LLM_based_answer_assessment> a kg:Metric ;
+    rdfs:label "LLM-based answer assessment" .
+
+<http://example.org/graphscout/entity/Labeled_Property_Graph> a kg:Concept ;
+    rdfs:label "Labeled Property Graph" ;
+    skos:altLabel "LPG" .
+
+<http://example.org/graphscout/entity/Majority_voting> a kg:Method ;
+    rdfs:label "Majority voting" .
+
+<http://example.org/graphscout/entity/Memgraph> a kg:Model ;
+    rdfs:label "Memgraph" .
+
+<http://example.org/graphscout/entity/Meno_Lite_0_1> a kg:Model ;
+    rdfs:label "Meno-Lite-0.1" .
+
+<http://example.org/graphscout/entity/Metric> a kg:Metric ;
+    rdfs:label "Metric" .
+
+<http://example.org/graphscout/entity/Microsoft_GraphRAG_pipeline> a kg:Method ;
+    rdfs:label "Microsoft GraphRAG pipeline" .
+
+<http://example.org/graphscout/entity/Multi_Agent_GraphRAG> a kg:Model ;
+    rdfs:label "Multi-Agent GraphRAG" .
+
+<http://example.org/graphscout/entity/Multi_hop_factoid_QA> a kg:Task ;
+    rdfs:label "Multi-hop factoid QA" .
+
+<http://example.org/graphscout/entity/Neo4j> a kg:Model ;
+    rdfs:label "Neo4j" .
+
+<http://example.org/graphscout/entity/ORAN_Intelligent_Controller> a kg:Concept ;
+    rdfs:label "ORAN Intelligent Controller" .
+
+<http://example.org/graphscout/entity/Open_Radio_Access_Networks> a kg:Task ;
+    rdfs:label "Open Radio Access Networks" ;
+    skos:altLabel "ORAN" .
+
+<http://example.org/graphscout/entity/PI> a kg:Concept ;
+    rdfs:label "PI" .
+
+<http://example.org/graphscout/entity/P_IDs> a kg:Task ;
+    rdfs:label "P&IDs" .
+
+<http://example.org/graphscout/entity/Parallel_scaling> a kg:Method ;
+    rdfs:label "Parallel scaling" .
+
+<http://example.org/graphscout/entity/PathRAG> a kg:Model ;
+    rdfs:label "PathRAG" .
+
+<http://example.org/graphscout/entity/Pike_RAG> a kg:Method ;
+    rdfs:label "Pike-RAG" .
+
+<http://example.org/graphscout/entity/Piping_and_Instrumentation_Diagrams> a kg:Task ;
+    rdfs:label "Piping and Instrumentation Diagrams" .
+
+<http://example.org/graphscout/entity/Poisoning_Attack> a kg:Method ;
+    rdfs:label "Poisoning Attack" .
+
+<http://example.org/graphscout/entity/Poisoning_Text> a kg:Concept ;
+    rdfs:label "Poisoning Text" .
+
+<http://example.org/graphscout/entity/QAs> a kg:Task ;
+    rdfs:label "QAs" .
+
+<http://example.org/graphscout/entity/Qwen2_5_32B> a kg:Model ;
+    rdfs:label "Qwen2.5-32B" .
+
+<http://example.org/graphscout/entity/RIC> a kg:Concept ;
+    rdfs:label "RIC" .
+
+<http://example.org/graphscout/entity/Resource_Description_Framework> a kg:Concept ;
+    rdfs:label "Resource Description Framework" ;
+    skos:altLabel "RDF" .
+
+<http://example.org/graphscout/entity/Retrieval_Augmented_Generation_Benchmark> a kg:Dataset ;
+    rdfs:label "Retrieval-Augmented Generation Benchmark" .
+
+<http://example.org/graphscout/entity/Sequential_scaling> a kg:Method ;
+    rdfs:label "Sequential scaling" .
+
+<http://example.org/graphscout/entity/Suicide_Social_Determinants_of_Health_Ontology> a kg:Concept ;
+    rdfs:label "Suicide Social Determinants of Health Ontology" .
+
+<http://example.org/graphscout/entity/Three_Step_Theory> a kg:Concept ;
+    rdfs:label "Three-Step Theory" .
+
+<http://example.org/graphscout/entity/VectorRAG> a kg:Model ;
+    rdfs:label "VectorRAG" .
+
+<http://example.org/graphscout/entity/accelerating_scientific_discovery> a kg:Concept ;
+    rdfs:label "accelerating scientific discovery" .
+
+<http://example.org/graphscout/entity/answer_quality> a kg:Metric ;
+    rdfs:label "answer quality" .
+
+<http://example.org/graphscout/entity/backbone_models> a kg:Concept ;
+    rdfs:label "backbone models" .
+
+<http://example.org/graphscout/entity/beam_search> a kg:Method ;
+    rdfs:label "beam search" .
+
+<http://example.org/graphscout/entity/behavioral_health_settings> a kg:Task ;
+    rdfs:label "behavioral health settings" .
+
+<http://example.org/graphscout/entity/clinician_facing_decision_support> a kg:Task ;
+    rdfs:label "clinician-facing decision support" .
+
+<http://example.org/graphscout/entity/comprehensiveness> a kg:Metric ;
+    rdfs:label "comprehensiveness" .
+
+<http://example.org/graphscout/entity/consumer_GPU> a kg:Concept ;
+    rdfs:label "consumer GPU" .
+
+<http://example.org/graphscout/entity/corrected_comparative_evaluation_protocol> a kg:Metric ;
+    rdfs:label "corrected comparative evaluation protocol" .
+
+<http://example.org/graphscout/entity/diversity> a kg:Metric ;
+    rdfs:label "diversity" .
+
+<http://example.org/graphscout/entity/empowerment> a kg:Metric ;
+    rdfs:label "empowerment" .
+
+<http://example.org/graphscout/entity/exact_match> a kg:Metric ;
+    rdfs:label "exact match" .
+
+<http://example.org/graphscout/entity/exactly_match> a kg:Metric ;
+    rdfs:label "exactly match" .
+
+<http://example.org/graphscout/entity/excessive_reliance> a kg:Concept ;
+    rdfs:label "excessive reliance" .
+
+<http://example.org/graphscout/entity/external_graphs> a kg:Concept ;
+    rdfs:label "external graphs" .
+
+<http://example.org/graphscout/entity/grounding> a kg:Metric ;
+    rdfs:label "grounding" .
+
+<http://example.org/graphscout/entity/intrinsic_reasoning> a kg:Concept ;
+    rdfs:label "intrinsic reasoning" .
+
+<http://example.org/graphscout/entity/multi_agent_analysis> a kg:Task ;
+    rdfs:label "multi-agent analysis" .
+
+<http://example.org/graphscout/entity/natural_language_processing> a kg:Concept ;
+    rdfs:label "natural language processing" .
+
+<http://example.org/graphscout/entity/ontology_guided_GraphRAG_framework> a kg:Method ;
+    rdfs:label "ontology-guided GraphRAG framework" ;
+    skos:altLabel "ontology-guided GraphRAG" .
+
+<http://example.org/graphscout/entity/ontology_guided_retrieval> a kg:Method ;
+    rdfs:label "ontology-guided retrieval" .
+
+<http://example.org/graphscout/entity/parameter_range_identification> a kg:Concept ;
+    rdfs:label "parameter range identification" .
+
+<http://example.org/graphscout/entity/parameter_selection> a kg:Concept ;
+    rdfs:label "parameter selection" .
+
+<http://example.org/graphscout/entity/patient_knowledge_graphs> a kg:Model ;
+    rdfs:label "patient knowledge graphs" .
+
+<http://example.org/graphscout/entity/plasma_literature> a kg:Dataset ;
+    rdfs:label "plasma literature" .
+
+<http://example.org/graphscout/entity/plasma_simulations> a kg:Task ;
+    rdfs:label "plasma simulations" .
+
+<http://example.org/graphscout/entity/query_based_summarization> a kg:Task ;
+    rdfs:label "query-based summarization" .
+
+<http://example.org/graphscout/entity/question_answering> a kg:Task ;
+    rdfs:label "question answering" .
+
+<http://example.org/graphscout/entity/regulated_settings> a kg:Concept ;
+    rdfs:label "regulated settings" .
+
+<http://example.org/graphscout/entity/retrieved_information> a kg:Concept ;
+    rdfs:label "retrieved information" .
+
+<http://example.org/graphscout/entity/simulation_reliability> a kg:Metric ;
+    rdfs:label "simulation reliability" .
+
+<http://example.org/graphscout/entity/smart_P_ID_files> a kg:Dataset ;
+    rdfs:label "smart P&ID files" .
+
+<http://example.org/graphscout/entity/structured_data> a kg:Dataset ;
+    rdfs:label "structured data" .
+
+<http://example.org/graphscout/entity/structured_output_errors> a kg:Concept ;
+    rdfs:label "structured output errors" .
+
+<http://example.org/graphscout/entity/structured_reasoning> a kg:Concept ;
+    rdfs:label "structured reasoning" .
+
+<http://example.org/graphscout/entity/structured_retrieval> a kg:Concept ;
+    rdfs:label "structured retrieval" .
+
+<http://example.org/graphscout/entity/suicide_prevention> a kg:Task ;
+    rdfs:label "suicide prevention" .
+
+<http://example.org/graphscout/entity/text_based_tasks> a kg:Task ;
+    rdfs:label "text-based tasks" .
+
+<http://example.org/graphscout/entity/text_benchmarks> a kg:Dataset ;
+    rdfs:label "text benchmarks" .
+
+<http://example.org/graphscout/entity/trafficQA_TFNSW> a kg:Dataset ;
+    rdfs:label "trafficQA-TFNSW" .
+
+<http://example.org/graphscout/entity/unstructured_text> a kg:Dataset ;
+    rdfs:label "unstructured text" .
+
+<http://example.org/graphscout/entity/vanilla_RAG> a kg:Model ;
+    rdfs:label "vanilla RAG" .
+
+<http://example.org/graphscout/entity/weatherQA_Irish> a kg:Dataset ;
+    rdfs:label "weatherQA-Irish" .
+
+<http://example.org/graphscout/entity/weatherQA_Sydney> a kg:Dataset ;
+    rdfs:label "weatherQA-Sydney" .
+
+kg:partOf a owl:ObjectProperty ;
+    rdfs:comment "component belongs to a larger system"@en .
+
+<http://example.org/graphscout/entity/GraphRAG_Filtering> a kg:Method ;
+    rdfs:label "GraphRAG-Filtering" ;
+    kg:uses <http://example.org/graphscout/entity/two_stage_filtering_mechanism> .
+
+<http://example.org/graphscout/entity/Multi_hop_question_answering> a kg:Task ;
+    rdfs:label "Multi-hop question answering" .
+
+<http://example.org/graphscout/paper/2503.14234> a kg:Paper ;
+    rdfs:label "Beyond Single Pass, Looping Through Time: KG-IRAG with Iterative Knowledge Retrieval" ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/KG>,
+        <http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/QAs>,
+        <http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks>,
+        <http://example.org/graphscout/entity/trafficQA_TFNSW>,
+        <http://example.org/graphscout/entity/weatherQA_Irish>,
+        <http://example.org/graphscout/entity/weatherQA_Sydney> ;
+    schema:author "Flora D. Salim",
+        "Hakim Hacid",
+        "Hao Xue",
+        "Imran Razzak",
+        "Ruiyi Yang" ;
+    schema:datePublished "2025-03-18"^^xsd:date ;
+    schema:name "Beyond Single Pass, Looping Through Time: KG-IRAG with Iterative Knowledge Retrieval" ;
+    schema:url <https://arxiv.org/abs/2503.14234> .
+
+<http://example.org/graphscout/entity/14_6x_construction_efficiency> a kg:Concept ;
+    rdfs:label "14.6x construction efficiency" .
+
+<http://example.org/graphscout/entity/1_9x_retrieval_efficiency> a kg:Concept ;
+    rdfs:label "1.9x retrieval efficiency" .
+
+<http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks> a kg:Concept ;
+    rdfs:label "AI-assisted process engineering tasks" .
+
+<http://example.org/graphscout/entity/DEXPI> a kg:Dataset ;
+    rdfs:label "DEXPI" .
+
+<http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration> a kg:Concept ;
+    rdfs:label "GraphRAG-Filtering', 'GraphRAG-Integration" .
+
+<http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams> a kg:Concept ;
+    rdfs:label "GraphRAG for engineering diagrams" .
+
+<http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation> a kg:Method ;
+    rdfs:label "Knowledge Graph-Based Iterative Retrieval-Augmented Generation" ;
+    skos:altLabel "KG-IRAG" .
+
+<http://example.org/graphscout/entity/Llama_3_1> a kg:Model ;
+    rdfs:label "Llama 3.1" .
+
+<http://example.org/graphscout/entity/Mistral> a kg:Model ;
+    rdfs:label "Mistral" .
+
+<http://example.org/graphscout/entity/ORAN_specifications> a kg:Concept ;
+    rdfs:label "ORAN specifications" .
+
+<http://example.org/graphscout/entity/Ollama> a kg:Model ;
+    rdfs:label "Ollama" .
+
+<http://example.org/graphscout/entity/Phi_4_mini> a kg:Model ;
+    rdfs:label "Phi-4-mini" .
+
+<http://example.org/graphscout/entity/Qwen_2_5> a kg:Model ;
+    rdfs:label "Qwen 2.5" .
+
+<http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation> a kg:Concept ;
+    rdfs:label "Tag-Guided Retrieval-Augmented Generation" .
+
+<http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction> a kg:Concept ;
+    rdfs:label "Tag Knowledge Graph Construction" .
+
+<http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation> a kg:Concept ;
+    rdfs:label "Tag-guided hierarchical knowledge graph retrieval-Augmented generation" .
+
+<http://example.org/graphscout/entity/UltraDomain_datasets> a kg:Concept ;
+    rdfs:label "UltraDomain datasets" .
+
+<http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains> a kg:Concept ;
+    rdfs:label "accelerates scientific discovery across complex, data-rich domains" .
+
+<http://example.org/graphscout/entity/commercial_LLM_APIs> a kg:Concept ;
+    rdfs:label "commercial LLM APIs" .
+
+<http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding> a kg:Concept ;
+    rdfs:label "completeness, clinical relevance, and evidence grounding" .
+
+<http://example.org/graphscout/entity/comprehensive_benchmark_study> a kg:Concept ;
+    rdfs:label "comprehensive benchmark study" .
+
+<http://example.org/graphscout/entity/consumer_hardware> a kg:Concept ;
+    rdfs:label "consumer hardware" .
+
+<http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings> a kg:Concept ;
+    rdfs:label "data preprocessing, retrieval configurations, and generation settings" .
+
+<http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives> a kg:Concept ;
+    rdfs:label "distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives" .
+
+<http://example.org/graphscout/entity/domain_specific_knowledge_graph> a kg:Concept ;
+    rdfs:label "domain-specific knowledge graph" .
+
+<http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance> a kg:Concept ;
+    rdfs:label "efficient global reasoning and scalable graph maintenance" .
+
+<http://example.org/graphscout/entity/efficient_knowledge_increment> a kg:Concept ;
+    rdfs:label "efficient knowledge increment" .
+
+<http://example.org/graphscout/entity/established_generation_metrics> a kg:Concept ;
+    rdfs:label "established generation metrics" .
+
+<http://example.org/graphscout/entity/factual_accuracy> a kg:Concept ;
+    rdfs:label "factual accuracy" .
+
+<http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases> a kg:Concept ;
+    rdfs:label "failure modes, efficiency trade-offs, and evaluation biases" .
+
+<http://example.org/graphscout/entity/four_models> a kg:Concept ;
+    rdfs:label "four models" .
+
+<http://example.org/graphscout/entity/global_retrieval> a kg:Concept ;
+    rdfs:label "global retrieval" .
+
+<http://example.org/graphscout/entity/graph_text_grounded_question_generation> a kg:Concept ;
+    rdfs:label "graph-text-grounded question generation" .
+
+<http://example.org/graphscout/entity/indexed_efficiency> a kg:Concept ;
+    rdfs:label "indexed efficiency" .
+
+<http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs> a kg:Concept ;
+    rdfs:label "inference-time scaling is a practical and architecture-agnostic solution for structured knowledge reasoning with LLMs" .
+
+<http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks> a kg:Concept ;
+    rdfs:label "information retrieval for complex reasoning tasks" .
+
+<http://example.org/graphscout/entity/intuitive_natural_language_interaction> a kg:Concept ;
+    rdfs:label "intuitive natural-language interaction" .
+
+<http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams> a kg:Concept ;
+    rdfs:label "intuitive natural-language interaction with complex engineering diagrams" .
+
+<http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems> a kg:Concept ;
+    rdfs:label "key considerations for designing and evaluating retrieval-augmented generation systems" .
+
+<http://example.org/graphscout/entity/knowledge_gaps> a kg:Concept ;
+    rdfs:label "knowledge gaps" .
+
+<http://example.org/graphscout/entity/knowledge_graph_QA_tasks> a kg:Concept ;
+    rdfs:label "knowledge graph QA tasks" .
+
+<http://example.org/graphscout/entity/local_retrieval> a kg:Concept ;
+    rdfs:label "local retrieval" .
+
+<http://example.org/graphscout/entity/logits_based_selection_strategy> a kg:Concept ;
+    rdfs:label "logits-based selection strategy" .
+
+<http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework> a kg:Concept ;
+    rdfs:label "more reliable and effective GraphRAG framework" .
+
+<http://example.org/graphscout/entity/multi_hop_question_answering_performance> a kg:Concept ;
+    rdfs:label "multi-hop question answering performance" .
+
+<http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships> a kg:Concept ;
+    rdfs:label "multi-hop reasoning across diagnoses, medications, risk and protective factors, life events, and temporal relationships" .
+
+<http://example.org/graphscout/entity/multiple_backbone_models> a kg:Concept ;
+    rdfs:label "multiple backbone models" .
+
+<http://example.org/graphscout/entity/only_0_004_per_task> a kg:Concept ;
+    rdfs:label "only 0.004 per task" .
+
+<http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework> a kg:Concept ;
+    rdfs:label "ontology-grounded GraphRAG framework" .
+
+<http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs> a kg:Model ;
+    rdfs:label "ontology-grounded patient knowledge graphs" .
+
+<http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality> a kg:Concept ;
+    rdfs:label "outperforms vanilla RAG by over 10% in overall quality" .
+
+<http://example.org/graphscout/entity/over_10_in_overall_quality> a kg:Concept ;
+    rdfs:label "over 10% in overall quality" .
+
+<http://example.org/graphscout/entity/over_reliance_on_retrievals> a kg:Concept ;
+    rdfs:label "over-reliance on retrievals" .
+
+<http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories> a kg:Concept ;
+    rdfs:label "parallel scaling and majority voting over sampled trajectories" .
+
+<http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval> a kg:Concept ;
+    rdfs:label "patient knowledge graphs with ontology-guided retrieval" .
+
+<http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously> a kg:Concept ;
+    rdfs:label "performance gains are much more moderate than reported previously" .
+
+<http://example.org/graphscout/entity/raw_image_inputs> a kg:Concept ;
+    rdfs:label "raw image inputs" .
+
+<http://example.org/graphscout/entity/real_world_EHR_schema_documentation> a kg:Concept ;
+    rdfs:label "real-world EHR schema documentation" .
+
+<http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25> a kg:Concept ;
+    rdfs:label "reduces hallucination rates by up to 25%" .
+
+<http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements> a kg:Concept ;
+    rdfs:label "selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements" .
+
+<http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal> a kg:Concept ;
+    rdfs:label "sequential scaling and deep chain-of-thought graph traversal" .
+
+<http://example.org/graphscout/entity/structured_knowledge> a kg:Concept ;
+    rdfs:label "structured knowledge" .
+
+<http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations> a kg:Concept ;
+    rdfs:label "structured retrieval over graph-anchored entities and relations" .
+
+<http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines> a kg:Concept ;
+    rdfs:label "substantial gains over both traditional GraphRAG and prior graph traversal baselines" .
+
+<http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering> a kg:Concept ;
+    rdfs:label "three different methodologies for constructing knowledge graph triplets and integrating them with Large Language Models (LLMs) for question answering" .
+
+<http://example.org/graphscout/entity/token_costs> a kg:Concept ;
+    rdfs:label "token costs" .
+
+<http://example.org/graphscout/entity/two_key_components> a kg:Concept ;
+    rdfs:label "two key components" .
+
+<http://example.org/graphscout/entity/two_stage_filtering_mechanism> a kg:Concept ;
+    rdfs:label "two-stage filtering mechanism" .
+
+<http://example.org/graphscout/entity/unbiased_evaluation_framework> a kg:Concept ;
+    rdfs:label "unbiased evaluation framework" .
+
+<http://example.org/graphscout/entity/varying_question_complexities> a kg:Concept ;
+    rdfs:label "varying question complexities" .
+
+<http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline> a kg:Model ;
+    rdfs:label "vector-based retrieval-augmented generation (RAG) baseline" .
+
+kg:outperforms a owl:ObjectProperty ;
+    rdfs:comment "method beats another method"@en .
+
+<http://example.org/graphscout/entity/ChatP_ID> a kg:Method ;
+    rdfs:label "ChatP&ID" ;
+    kg:addresses <http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks>,
+        <http://example.org/graphscout/entity/intuitive_natural_language_interaction>,
+        <http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams> .
+
+<http://example.org/graphscout/entity/GraphRAG_FI> a kg:Method ;
+    rdfs:label "GraphRAG-FI" ;
+    kg:partOf <http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration> .
+
+<http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE> a kg:Method ;
+    rdfs:label "Stanford CoreNLP-OpenIE" ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    kg:proposes <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> .
+
+<http://example.org/graphscout/entity/Vector_RAG> a kg:Model ;
+    rdfs:label "Vector RAG" ;
+    kg:outperforms <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> .
+
+<http://example.org/graphscout/entity/hallucinations> a kg:Metric ;
+    rdfs:label "hallucinations" ;
+    skos:altLabel "hallucination" .
+
+<http://example.org/graphscout/entity/spaCy> a kg:Method ;
+    rdfs:label "spaCy" ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    kg:proposes <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> .
+
+<http://example.org/graphscout/entity/Context_relevance> a kg:Metric ;
+    rdfs:label "Context relevance" ;
+    skos:altLabel "context relevance" .
+
+<http://example.org/graphscout/entity/Factual_correctness> a kg:Metric ;
+    rdfs:label "Factual correctness" ;
+    skos:altLabel "factual correctness" .
+
+<http://example.org/graphscout/entity/Hybrid_GraphRAG> a kg:Model ;
+    rdfs:label "Hybrid GraphRAG" ;
+    kg:improves <http://example.org/graphscout/entity/Context_relevance>,
+        <http://example.org/graphscout/entity/Factual_correctness> .
+
+<http://example.org/graphscout/entity/clinician_facing_question_answering> a kg:Task ;
+    rdfs:label "clinician-facing question answering" .
+
+kg:Entity a owl:Class .
+
+kg:comparedWith a owl:ObjectProperty ;
+    rdfs:comment "method or paper is compared with another method"@en .
+
+<http://example.org/graphscout/entity/Retrieval_Augmented_Generation> a kg:Method ;
+    rdfs:label "Retrieval-Augmented Generation" ;
+    skos:altLabel "RAG",
+        "Retrieval Augmented Generation" .
+
+<http://example.org/graphscout/paper/2506.06331> a kg:Paper ;
+    rdfs:label "How Significant Are the Real Performance Gains? An Unbiased Evaluation Framework for GraphRAG" ;
+    kg:mentions <http://example.org/graphscout/entity/GraphRAG_methods>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/LLM_based_answer_assessment>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/answer_quality>,
+        <http://example.org/graphscout/entity/graph_text_grounded_question_generation>,
+        <http://example.org/graphscout/entity/knowledge_graph>,
+        <http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously>,
+        <http://example.org/graphscout/entity/unbiased_evaluation_framework> ;
+    kg:proposes <http://example.org/graphscout/entity/unbiased_evaluation_framework> ;
+    kg:reports <http://example.org/graphscout/entity/performance_gains_are_much_more_moderate_than_reported_previously> ;
+    kg:uses <http://example.org/graphscout/entity/graph_text_grounded_question_generation> ;
+    schema:author "Fangcheng Fu",
+        "Hao Luo",
+        "Jiawei Jiang",
+        "Qiming Zeng",
+        "Xiao Yan",
+        "Yicheng Jin",
+        "Yuhao Lin",
+        "Yuxiang Wang" ;
+    schema:datePublished "2025-05-31"^^xsd:date ;
+    schema:name "How Significant Are the Real Performance Gains? An Unbiased Evaluation Framework for GraphRAG" ;
+    schema:url <https://arxiv.org/abs/2506.06331> .
+
+<http://example.org/graphscout/paper/2506.19967> a kg:Paper ;
+    rdfs:label "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs" ;
+    kg:mentions <http://example.org/graphscout/entity/Deep_chain_of_thought_graph_traversal>,
+        <http://example.org/graphscout/entity/GRBench_benchmark>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG>,
+        <http://example.org/graphscout/entity/Majority_voting>,
+        <http://example.org/graphscout/entity/Multi_hop_question_answering>,
+        <http://example.org/graphscout/entity/Parallel_scaling>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Sequential_scaling>,
+        <http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs>,
+        <http://example.org/graphscout/entity/knowledge_graph>,
+        <http://example.org/graphscout/entity/multi_hop_question_answering_performance>,
+        <http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories>,
+        <http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal>,
+        <http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines> ;
+    kg:proposes <http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> ;
+    schema:author "Dongkuan Xu",
+        "Paul Liu",
+        "Ruoying He",
+        "Seung-Hwan Lim",
+        "Travis Thompson" ;
+    schema:datePublished "2025-06-24"^^xsd:date ;
+    schema:name "Inference Scaled GraphRAG: Improving Multi Hop Question Answering on Knowledge Graphs" ;
+    schema:url <https://arxiv.org/abs/2506.19967> .
+
+kg:relatedTo a owl:ObjectProperty ;
+    rdfs:comment "open relation with no schema match (original wording kept)"@en .
+
+<http://example.org/graphscout/entity/Inference_Scaled_GraphRAG> a kg:Method ;
+    rdfs:label "Inference-Scaled GraphRAG" ;
+    kg:improves <http://example.org/graphscout/entity/multi_hop_question_answering_performance>,
+        <http://example.org/graphscout/entity/substantial_gains_over_both_traditional_GraphRAG_and_prior_graph_traversal_baselines> ;
+    kg:reports <http://example.org/graphscout/entity/inference_time_scaling_is_a_practical_and_architecture_agnostic_solution_for_structured_knowledge_reasoning_with_LLMs> ;
+    kg:uses <http://example.org/graphscout/entity/parallel_scaling_and_majority_voting_over_sampled_trajectories>,
+        <http://example.org/graphscout/entity/sequential_scaling_and_deep_chain_of_thought_graph_traversal> .
+
+<http://example.org/graphscout/paper/2604.06279> a kg:Paper ;
+    rdfs:label "Plasma GraphRAG: Physics-Grounded Parameter Selection for Gyrokinetic Simulations" ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Gyrokinetic_plasma_simulations>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/Plasma_GraphRAG_framework>,
+        <http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains>,
+        <http://example.org/graphscout/entity/accelerating_scientific_discovery>,
+        <http://example.org/graphscout/entity/comprehensiveness>,
+        <http://example.org/graphscout/entity/diversity>,
+        <http://example.org/graphscout/entity/domain_specific_knowledge_graph>,
+        <http://example.org/graphscout/entity/empowerment>,
+        <http://example.org/graphscout/entity/grounding>,
+        <http://example.org/graphscout/entity/hallucinations>,
+        <http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality>,
+        <http://example.org/graphscout/entity/over_10_in_overall_quality>,
+        <http://example.org/graphscout/entity/parameter_range_identification>,
+        <http://example.org/graphscout/entity/parameter_selection>,
+        <http://example.org/graphscout/entity/plasma_literature>,
+        <http://example.org/graphscout/entity/plasma_simulations>,
+        <http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25>,
+        <http://example.org/graphscout/entity/simulation_reliability>,
+        <http://example.org/graphscout/entity/structured_retrieval>,
+        <http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations>,
+        <http://example.org/graphscout/entity/vanilla_RAG> ;
+    schema:author "Chenguang Wan",
+        "Feda AlMuhisen",
+        "Kunpeng Li",
+        "Kyungtak Lim",
+        "Ruichen Zhang",
+        "Virginie Grandgirard",
+        "Xavier Garbet",
+        "Youngwoo Cho",
+        "Zhisong Qu" ;
+    schema:datePublished "2026-04-07"^^xsd:date ;
+    schema:name "Plasma GraphRAG: Physics-Grounded Parameter Selection for Gyrokinetic Simulations" ;
+    schema:url <https://arxiv.org/abs/2604.06279> .
+
+kg:addresses a owl:ObjectProperty ;
+    rdfs:comment "method addresses a task or problem"@en .
+
+<http://example.org/graphscout/entity/Plasma_GraphRAG_framework> a kg:Model ;
+    rdfs:label "Plasma GraphRAG framework" ;
+    kg:addresses <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/structured_retrieval_over_graph_anchored_entities_and_relations> ;
+    kg:proposes <http://example.org/graphscout/entity/domain_specific_knowledge_graph> ;
+    kg:reports <http://example.org/graphscout/entity/accelerates_scientific_discovery_across_complex_data_rich_domains>,
+        <http://example.org/graphscout/entity/outperforms_vanilla_RAG_by_over_10_in_overall_quality>,
+        <http://example.org/graphscout/entity/over_10_in_overall_quality>,
+        <http://example.org/graphscout/entity/reduces_hallucination_rates_by_up_to_25> ;
+    kg:uses <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    skos:altLabel "Plasma GraphRAG" .
+
+<http://example.org/graphscout/entity/knowledge_graph> a kg:Concept ;
+    rdfs:label "knowledge graph" ;
+    skos:altLabel "Knowledge Graph",
+        "Knowledge graph" .
+
+<http://example.org/graphscout/entity/GraphRAG_Integration> a kg:Method ;
+    rdfs:label "GraphRAG-Integration" ;
+    kg:addresses <http://example.org/graphscout/entity/over_reliance_on_retrievals> ;
+    kg:proposes <http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework> ;
+    kg:relatedTo <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/hallucinations>,
+        <http://example.org/graphscout/entity/knowledge_gaps>,
+        <http://example.org/graphscout/entity/knowledge_graph_QA_tasks>,
+        <http://example.org/graphscout/entity/multiple_backbone_models>,
+        <http://example.org/graphscout/entity/structured_knowledge> ;
+    kg:uses <http://example.org/graphscout/entity/logits_based_selection_strategy> .
+
+<http://example.org/graphscout/entity/HotpotQA> a kg:Dataset ;
+    rdfs:label "HotpotQA" .
+
+kg:improves a owl:ObjectProperty ;
+    rdfs:comment "method improves a task, metric or quality"@en .
+
+<http://example.org/graphscout/paper/2601.05254> a kg:Paper ;
+    rdfs:label "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation" ;
+    kg:mentions <http://example.org/graphscout/entity/14_6x_construction_efficiency>,
+        <http://example.org/graphscout/entity/1_9x_retrieval_efficiency>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/TagRAG>,
+        <http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction>,
+        <http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation>,
+        <http://example.org/graphscout/entity/UltraDomain_datasets>,
+        <http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance>,
+        <http://example.org/graphscout/entity/efficient_knowledge_increment>,
+        <http://example.org/graphscout/entity/two_key_components> ;
+    schema:author "Weining Qian",
+        "Wenbiao Tao",
+        "Xinyuan Li",
+        "Yunshi Lan" ;
+    schema:datePublished "2025-10-18"^^xsd:date ;
+    schema:name "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation" ;
+    schema:url <https://arxiv.org/abs/2601.05254> .
+
+<http://example.org/graphscout/paper/2610.09026> a kg:Paper ;
+    rdfs:label "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment" ;
+    kg:mentions <http://example.org/graphscout/entity/BEACON_SP>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Integrated_Motivational_Volitional_Model>,
+        <http://example.org/graphscout/entity/Suicide_Social_Determinants_of_Health_Ontology>,
+        <http://example.org/graphscout/entity/Three_Step_Theory>,
+        <http://example.org/graphscout/entity/behavioral_health_settings>,
+        <http://example.org/graphscout/entity/clinician_facing_decision_support>,
+        <http://example.org/graphscout/entity/clinician_facing_question_answering>,
+        <http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding>,
+        <http://example.org/graphscout/entity/corrected_comparative_evaluation_protocol>,
+        <http://example.org/graphscout/entity/factual_accuracy>,
+        <http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships>,
+        <http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework>,
+        <http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs>,
+        <http://example.org/graphscout/entity/ontology_guided_GraphRAG_framework>,
+        <http://example.org/graphscout/entity/ontology_guided_retrieval>,
+        <http://example.org/graphscout/entity/patient_knowledge_graphs>,
+        <http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval>,
+        <http://example.org/graphscout/entity/suicide_prevention>,
+        <http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline> ;
+    schema:author "Kemal Davaslioglu",
+        "Nathan Conger",
+        "Nathaniel D. Bastian",
+        "Sastry Kompella",
+        "Yalin E. Sagduyu" ;
+    schema:datePublished "2026-10-06"^^xsd:date ;
+    schema:name "BEACON-SP: Ontology-Grounded GraphRAG Framework for Clinical Suicide Risk Assessment" ;
+    schema:url <https://arxiv.org/abs/2610.09026> .
+
+kg:reports a owl:ObjectProperty ;
+    rdfs:comment "paper or method reports a finding (object is a short claim)"@en .
+
+<http://example.org/graphscout/entity/BEACON_SP> a kg:Method ;
+    rdfs:label "BEACON-SP" ;
+    kg:addresses <http://example.org/graphscout/entity/multi_hop_reasoning_across_diagnoses_medications_risk_and_protective_factors_life_events_and_temporal_relationships> ;
+    kg:comparedWith <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/vector_based_retrieval_augmented_generation_RAG_baseline> ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/clinician_facing_question_answering> ;
+    kg:improves <http://example.org/graphscout/entity/completeness_clinical_relevance_and_evidence_grounding>,
+        <http://example.org/graphscout/entity/factual_accuracy> ;
+    kg:proposes <http://example.org/graphscout/entity/ontology_grounded_GraphRAG_framework>,
+        <http://example.org/graphscout/entity/ontology_grounded_patient_knowledge_graphs> ;
+    kg:relatedTo <http://example.org/graphscout/entity/clinician_facing_question_answering> ;
+    kg:uses <http://example.org/graphscout/entity/patient_knowledge_graphs_with_ontology_guided_retrieval> .
+
+<http://example.org/graphscout/entity/TagRAG> a kg:Method ;
+    rdfs:label "TagRAG" ;
+    kg:addresses <http://example.org/graphscout/entity/efficient_knowledge_increment> ;
+    kg:comparedWith <http://example.org/graphscout/entity/14_6x_construction_efficiency>,
+        <http://example.org/graphscout/entity/1_9x_retrieval_efficiency>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/UltraDomain_datasets> ;
+    kg:proposes <http://example.org/graphscout/entity/Tag_Guided_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Tag_Knowledge_Graph_Construction>,
+        <http://example.org/graphscout/entity/Tag_guided_hierarchical_knowledge_graph_retrieval_Augmented_generation>,
+        <http://example.org/graphscout/entity/efficient_global_reasoning_and_scalable_graph_maintenance>,
+        <http://example.org/graphscout/entity/two_key_components> .
+
+<http://example.org/graphscout/paper/2509.09272> a kg:Paper ;
+    rdfs:label "Fusing Knowledge and Language: A Comparative Study of Knowledge Graph-Based Question Answering with LLMs" ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/Multi_hop_question_answering>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Stanford_CoreNLP_OpenIE>,
+        <http://example.org/graphscout/entity/knowledge_graph>,
+        <http://example.org/graphscout/entity/knowledge_graph_based_question_answering>,
+        <http://example.org/graphscout/entity/spaCy>,
+        <http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering> ;
+    kg:proposes <http://example.org/graphscout/entity/three_different_methodologies_for_constructing_knowledge_graph_triplets_and_integrating_them_with_Large_Language_Models_LLMs_for_question_answering> ;
+    schema:author "Amita Kapoor",
+        "Narotam Singh",
+        "Neha Soni",
+        "Vaibhav Chaudhary" ;
+    schema:datePublished "2025-09-11"^^xsd:date ;
+    schema:name "Fusing Knowledge and Language: A Comparative Study of Knowledge Graph-Based Question Answering with LLMs" ;
+    schema:url <https://arxiv.org/abs/2509.09272> .
+
+<http://example.org/graphscout/paper/2605.20815> a kg:Paper ;
+    rdfs:label "GraphRAG on Consumer Hardware: Benchmarking Local LLMs for Healthcare EHR Schema Retrieval" ;
+    kg:mentions <http://example.org/graphscout/entity/EHR_schema_retrieval>,
+        <http://example.org/graphscout/entity/Electronic_Health_Record>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/Llama_3_1>,
+        <http://example.org/graphscout/entity/Microsoft_GraphRAG_pipeline>,
+        <http://example.org/graphscout/entity/Mistral>,
+        <http://example.org/graphscout/entity/Ollama>,
+        <http://example.org/graphscout/entity/Phi_4_mini>,
+        <http://example.org/graphscout/entity/Qwen_2_5>,
+        <http://example.org/graphscout/entity/consumer_GPU>,
+        <http://example.org/graphscout/entity/consumer_hardware>,
+        <http://example.org/graphscout/entity/four_models>,
+        <http://example.org/graphscout/entity/global_retrieval>,
+        <http://example.org/graphscout/entity/indexed_efficiency>,
+        <http://example.org/graphscout/entity/local_retrieval>,
+        <http://example.org/graphscout/entity/real_world_EHR_schema_documentation>,
+        <http://example.org/graphscout/entity/regulated_settings>,
+        <http://example.org/graphscout/entity/structured_output_errors>,
+        <http://example.org/graphscout/entity/structured_reasoning> ;
+    schema:author "Peter Fernandes",
+        "Ria Kanjilal" ;
+    schema:datePublished "2026-05-20"^^xsd:date ;
+    schema:name "GraphRAG on Consumer Hardware: Benchmarking Local LLMs for Healthcare EHR Schema Retrieval" ;
+    schema:url <https://arxiv.org/abs/2605.20815> .
+
+kg:uses a owl:ObjectProperty ;
+    rdfs:comment "method uses another method, model or concept"@en .
+
+<http://example.org/graphscout/paper/2502.11371> a kg:Paper ;
+    rdfs:label "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights" ;
+    kg:addresses <http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings> ;
+    kg:mentions <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/comprehensive_benchmark_study>,
+        <http://example.org/graphscout/entity/data_preprocessing_retrieval_configurations_and_generation_settings>,
+        <http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives>,
+        <http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases>,
+        <http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems>,
+        <http://example.org/graphscout/entity/knowledge_graph>,
+        <http://example.org/graphscout/entity/query_based_summarization>,
+        <http://example.org/graphscout/entity/question_answering>,
+        <http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements>,
+        <http://example.org/graphscout/entity/structured_data>,
+        <http://example.org/graphscout/entity/text_based_tasks>,
+        <http://example.org/graphscout/entity/text_benchmarks>,
+        <http://example.org/graphscout/entity/unstructured_text> ;
+    kg:proposes <http://example.org/graphscout/entity/comprehensive_benchmark_study> ;
+    kg:reports <http://example.org/graphscout/entity/distinct_strengths_of_RAG_and_GraphRAG_across_different_tasks_and_evaluation_perspectives>,
+        <http://example.org/graphscout/entity/failure_modes_efficiency_trade_offs_and_evaluation_biases>,
+        <http://example.org/graphscout/entity/key_considerations_for_designing_and_evaluating_retrieval_augmented_generation_systems>,
+        <http://example.org/graphscout/entity/selection_and_integration_strategies_that_combine_the_strengths_of_both_paradigms_leading_to_consistent_performance_improvements> ;
+    schema:author "Bo Long",
+        "Haoyu Han",
+        "Harry Shomer",
+        "Hui Liu",
+        "Kai Guo",
+        "Li Ma",
+        "Yongjia Lei",
+        "Yu Wang",
+        "Zhigang Hua",
+        "Zhisheng Qi" ;
+    schema:datePublished "2025-02-17"^^xsd:date ;
+    schema:name "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights" ;
+    schema:url <https://arxiv.org/abs/2502.11371> .
+
+<http://example.org/graphscout/entity/knowledge_graph_based_question_answering> a kg:Concept ;
+    rdfs:label "knowledge graph-based question answering" .
+
+<http://example.org/graphscout/paper/2503.13804> a kg:Paper ;
+    rdfs:label "Empowering GraphRAG with Knowledge Filtering and Integration" ;
+    kg:mentions <http://example.org/graphscout/entity/GraphRAG_FI>,
+        <http://example.org/graphscout/entity/GraphRAG_Filtering>,
+        <http://example.org/graphscout/entity/GraphRAG_Filtering_GraphRAG_Integration>,
+        <http://example.org/graphscout/entity/GraphRAG_Integration>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/backbone_models>,
+        <http://example.org/graphscout/entity/beam_search>,
+        <http://example.org/graphscout/entity/excessive_reliance>,
+        <http://example.org/graphscout/entity/external_graphs>,
+        <http://example.org/graphscout/entity/hallucinations>,
+        <http://example.org/graphscout/entity/intrinsic_reasoning>,
+        <http://example.org/graphscout/entity/knowledge_gaps>,
+        <http://example.org/graphscout/entity/knowledge_graph>,
+        <http://example.org/graphscout/entity/knowledge_graph_QA_tasks>,
+        <http://example.org/graphscout/entity/logits_based_selection_strategy>,
+        <http://example.org/graphscout/entity/more_reliable_and_effective_GraphRAG_framework>,
+        <http://example.org/graphscout/entity/multiple_backbone_models>,
+        <http://example.org/graphscout/entity/natural_language_processing>,
+        <http://example.org/graphscout/entity/over_reliance_on_retrievals>,
+        <http://example.org/graphscout/entity/retrieved_information>,
+        <http://example.org/graphscout/entity/structured_knowledge>,
+        <http://example.org/graphscout/entity/two_stage_filtering_mechanism> ;
+    kg:proposes <http://example.org/graphscout/entity/GraphRAG_FI> ;
+    schema:author "Haoyu Han",
+        "Harry Shomer",
+        "Jiliang Tang",
+        "Kai Guo",
+        "Shenglai Zeng",
+        "Yu Wang" ;
+    schema:datePublished "2025-03-18"^^xsd:date ;
+    schema:name "Empowering GraphRAG with Knowledge Filtering and Integration" ;
+    schema:url <https://arxiv.org/abs/2503.13804> .
+
+<http://example.org/graphscout/entity/Large_Language_Models> a kg:Model ;
+    rdfs:label "Large Language Models" ;
+    skos:altLabel "LLM",
+        "LLMs",
+        "Large Language Model" .
+
+kg:Metric a owl:Class ;
+    rdfs:comment "an evaluation measure (e.g. F1, exact match)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:DefinedTerm .
+
+<http://example.org/graphscout/paper/2507.03608> a kg:Paper ;
+    rdfs:label "Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN)" ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/ORAN_specifications>,
+        <http://example.org/graphscout/entity/established_generation_metrics>,
+        <http://example.org/graphscout/entity/varying_question_complexities> ;
+    kg:mentions <http://example.org/graphscout/entity/Answer_relevance>,
+        <http://example.org/graphscout/entity/Context_relevance>,
+        <http://example.org/graphscout/entity/Factual_correctness>,
+        <http://example.org/graphscout/entity/Faithfulness>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Hybrid_GraphRAG>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/ORAN_Intelligent_Controller>,
+        <http://example.org/graphscout/entity/ORAN_specifications>,
+        <http://example.org/graphscout/entity/Open_Radio_Access_Networks>,
+        <http://example.org/graphscout/entity/RIC>,
+        <http://example.org/graphscout/entity/Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Vector_RAG>,
+        <http://example.org/graphscout/entity/established_generation_metrics>,
+        <http://example.org/graphscout/entity/varying_question_complexities> ;
+    kg:proposes <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Hybrid_GraphRAG>,
+        <http://example.org/graphscout/entity/Vector_RAG> ;
+    schema:author "Maryam Hafeez",
+        "Sarat Ahmad",
+        "Syed Ali Raza Zaidi",
+        "Zeinab Nezami" ;
+    schema:datePublished "2025-07-04"^^xsd:date ;
+    schema:name "Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN)" ;
+    schema:url <https://arxiv.org/abs/2507.03608> .
+
+<http://example.org/graphscout/paper/2603.22528> a kg:Paper ;
+    rdfs:label "GraphRAG for Engineering Diagrams: ChatP&ID Enables LLM Interaction with P&IDs" ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/commercial_LLM_APIs> ;
+    kg:improves <http://example.org/graphscout/entity/only_0_004_per_task> ;
+    kg:mentions <http://example.org/graphscout/entity/AI_assisted_process_engineering_tasks>,
+        <http://example.org/graphscout/entity/ChatP_ID>,
+        <http://example.org/graphscout/entity/ContextRAG>,
+        <http://example.org/graphscout/entity/DEXPI>,
+        <http://example.org/graphscout/entity/DEXPI_standard>,
+        <http://example.org/graphscout/entity/GPT_5_mini>,
+        <http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/Hazard_and_Operability_Studies>,
+        <http://example.org/graphscout/entity/Large_Language_Models>,
+        <http://example.org/graphscout/entity/P_IDs>,
+        <http://example.org/graphscout/entity/PathRAG>,
+        <http://example.org/graphscout/entity/Piping_and_Instrumentation_Diagrams>,
+        <http://example.org/graphscout/entity/VectorRAG>,
+        <http://example.org/graphscout/entity/commercial_LLM_APIs>,
+        <http://example.org/graphscout/entity/intuitive_natural_language_interaction>,
+        <http://example.org/graphscout/entity/intuitive_natural_language_interaction_with_complex_engineering_diagrams>,
+        <http://example.org/graphscout/entity/multi_agent_analysis>,
+        <http://example.org/graphscout/entity/only_0_004_per_task>,
+        <http://example.org/graphscout/entity/raw_image_inputs>,
+        <http://example.org/graphscout/entity/smart_P_ID_files>,
+        <http://example.org/graphscout/entity/token_costs> ;
+    kg:outperforms <http://example.org/graphscout/entity/raw_image_inputs>,
+        <http://example.org/graphscout/entity/token_costs> ;
+    kg:proposes <http://example.org/graphscout/entity/GraphRAG_for_engineering_diagrams> ;
+    kg:uses <http://example.org/graphscout/entity/DEXPI>,
+        <http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> ;
+    schema:author "Achmad Anggawirya Alimin",
+        "Artur M. Schweidtmann" ;
+    schema:datePublished "2026-03-23"^^xsd:date ;
+    schema:name "GraphRAG for Engineering Diagrams: ChatP&ID Enables LLM Interaction with P&IDs" ;
+    schema:url <https://arxiv.org/abs/2603.22528> .
+
+kg:Dataset a owl:Class ;
+    rdfs:comment "a named dataset or benchmark (e.g. HotpotQA)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:Dataset .
+
+kg:Task a owl:Class ;
+    rdfs:comment "a problem being solved (e.g. multi-hop question answering)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:DefinedTerm .
+
+kg:Paper a owl:Class ;
+    rdfs:subClassOf schema:ScholarlyArticle .
+
+kg:evaluatedOn a owl:ObjectProperty ;
+    rdfs:comment "method or paper is evaluated on a dataset"@en .
+
+kg:proposes a owl:ObjectProperty ;
+    rdfs:comment "paper or method introduces something new"@en .
+
+kg:Method a owl:Class ;
+    rdfs:comment "a technique, algorithm, framework or system (e.g. GraphRAG, beam search)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:DefinedTerm .
+
+kg:Model a owl:Class ;
+    rdfs:comment "a specific named language model (e.g. Llama 3, GPT-4)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:SoftwareApplication .
+
+<http://example.org/graphscout/entity/Graph_Retrieval_Augmented_Generation> a kg:Method ;
+    rdfs:label "Graph Retrieval-Augmented Generation" ;
+    kg:evaluatedOn <http://example.org/graphscout/entity/HotpotQA>,
+        <http://example.org/graphscout/entity/Llama_3_1>,
+        <http://example.org/graphscout/entity/Mistral>,
+        <http://example.org/graphscout/entity/Phi_4_mini>,
+        <http://example.org/graphscout/entity/Qwen_2_5>,
+        <http://example.org/graphscout/entity/four_models>,
+        <http://example.org/graphscout/entity/global_retrieval>,
+        <http://example.org/graphscout/entity/indexed_efficiency>,
+        <http://example.org/graphscout/entity/knowledge_graph_based_question_answering>,
+        <http://example.org/graphscout/entity/local_retrieval>,
+        <http://example.org/graphscout/entity/real_world_EHR_schema_documentation> ;
+    kg:improves <http://example.org/graphscout/entity/Context_relevance>,
+        <http://example.org/graphscout/entity/Factual_correctness>,
+        <http://example.org/graphscout/entity/information_retrieval_for_complex_reasoning_tasks> ;
+    kg:proposes <http://example.org/graphscout/entity/Knowledge_Graph_Based_Iterative_Retrieval_Augmented_Generation>,
+        <http://example.org/graphscout/entity/knowledge_graph_based_question_answering> ;
+    kg:uses <http://example.org/graphscout/entity/Ollama>,
+        <http://example.org/graphscout/entity/consumer_hardware> ;
+    skos:altLabel "GraphRAG",
+        "GraphRAG pipeline" .
+
+kg:Concept a owl:Class ;
+    rdfs:comment "any other important idea (e.g. knowledge graph, hallucination)"@en ;
+    rdfs:subClassOf kg:Entity,
+        schema:DefinedTerm .
+
