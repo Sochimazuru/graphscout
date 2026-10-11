@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+lib/
+# data/ and outputs/ are committed on purpose after your real run, so reviewers can see results.

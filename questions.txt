@@ -1,0 +1,8 @@
+# One question per line. Lines starting with # are ignored.
+# These are starting points. After `python -m graphscout sparql`, edit them to
+# name entities that really are in your graph, so the demo shows real multi-hop paths.
+Which methods use knowledge graphs to improve retrieval-augmented generation, and what datasets are they evaluated on?
+Which datasets are used by more than one paper, and which methods are tested on them?
+What do the methods that outperform standard RAG have in common in the techniques they use?
+Which papers address multi-hop question answering, and what does each of their methods rely on?
+Which approaches use LLM agents to explore or traverse a graph?

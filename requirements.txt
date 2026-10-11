@@ -1,0 +1,7 @@
+requests>=2.31
+rdflib>=7.0
+pyvis>=0.3.2
+# optional, only for pushing straight into a running Neo4j:
+neo4j>=5.0
+# tests
+pytest>=8.0
