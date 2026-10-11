@@ -6,3 +6,8 @@ venv/
 lib/
 # data/ and outputs/ are committed on purpose after your real run, so reviewers can see results.
 *.zip
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk

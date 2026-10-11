@@ -6,6 +6,8 @@ I built it as a compact, end-to-end version of a research pipeline for LLM-based
 
 Everything runs locally on a laptop CPU with [Ollama](https://ollama.com). No API keys, no GPU.
 
+An extended abstract (a proof of concept prepared for a PhD application) describing the method, the maths behind each step and the results is in [`paper/graphscout.pdf`](paper/graphscout.pdf).
+
 ## How it works
 
 ```
@@ -25,7 +27,7 @@ arXiv API ──► 1. Fetch ──► 2. Extract (LLM, open IE) ──► 3. Al
    - **Planner** picks the entities in the question and finds them in the graph.
    - **Routing** comes first: relation words in the question ("improve", "compared", "evaluated", ...) pull in edges with the matching schema property straight from the start nodes. This keeps a small model from overlooking the obvious facts.
    - **Explorer** looks at the edges around the current nodes (a SPARQL query), chooses which ones to follow, and repeats for up to 3 hops.
-   - **Answerer** writes the answer from the collected evidence only, citing each fact. Grounding is measured, not self-reported: the output states how many evidence facts the answer cites, how many of those are direct facts rather than "paper mentions X" links, and how many answer sentences carry no citation at all.
+   - **Answerer** writes the answer from the collected evidence only, citing each fact. Each answer reports two grounding signals: the evidence IDs the model says it cited (self-reported), and the number of answer sentences with no inline citation (measured from the answer text). Only the second is independent of the model.
    - Counting questions ("which datasets appear in more than one paper?") are answered better by SPARQL than by the agents, so `python -m graphscout sparql` covers those.
 
 ## Run it
@@ -104,7 +106,7 @@ The 15 errors fall into a few groups:
 - **Reversed comparison** (1): "Vector RAG outperforms GraphRAG", where the abstract says the opposite.
 - **Hallucinated entity** (1): HotpotQA, which does not appear in the source abstract.
 
-**Question answering** (`outputs/answers.md`): example questions with the answer, the routing and hops taken, and a table of cited evidence with source papers. The clearest example is the question about Inference-Scaled GraphRAG, answered in one hop from two direct facts. Each answer reports how many evidence facts it cites and how many sentences carry no citation.
+**Question answering** (`outputs/answers.md`): five questions, each with the answer, the routing step and hops taken, and the evidence with source papers. Judged by hand against the source abstracts, 2 answers are correct (Inference-Scaled GraphRAG, BEACON-SP), 1 is partly correct (TagRAG) and 2 are wrong (HotpotQA, GraphRAG comparison). Both wrong answers trace to extraction errors or to the answerer going beyond its evidence. None of the 6 answer sentences carries an inline citation, while the model's own cited-ID list named every evidence fact for 3 of the 5 answers, so the self-reported list is not a reliable grounding signal.
 
 Also in `outputs/`: `sparql_results.md` (ready-made queries), `graph.html` (interactive graph), `graph.ttl` (RDF), `graph.cypher` (Neo4j).
 
